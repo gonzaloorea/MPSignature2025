@@ -118,6 +118,7 @@
             <!-- STEP 3 -- Fin Dropdown sede -->
             <!-- STEP 4 -- INICIO CUERPO -->
             <div x-show="step == 4" class="grow w-full grid grid-cols-2 mx-auto gap-2">
+                <!-- PANEL IZQUIERDO formulario datos personales -->
                 <div class="grow flex flex-wrap bg-gray-100/50 rounded shadow-sm p-4">
                     <h2 class="grow w-full text-xl text-red-900">Completa tus datos personales.</h2>
                     <div class="w-1/2 flex flex-col gap-2">
@@ -137,7 +138,26 @@
                         <label for="businessweb" class="text-sm text-gray-400">Cargo / Position (english language)</label>
                         <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position">
                     </div>
+
+                    <div class="w-1/2 flex flex-col gap-2">
+                        <label for="businessname" class="text-sm text-gray-400">Teléfono / Phone number</label>
+                        <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Nombre / Name">
+                    </div>
+                    <div class="w-1/2 flex flex-col gap-2">
+                        <label for="businessaddress" class="text-sm text-gray-400">Móvil / Mobile</label>
+                        <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Apellidos / Surnames">
+                    </div>
+
+                    <div class="w-1/3 flex flex-col gap-2">
+                        <label for="businessname" class="text-sm text-gray-400">Usuario / user</label>
+                        <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Nombre / Name">
+                    </div>
+                    <div class="w-2/3 flex flex-col gap-2">
+                        <label for="businessaddress" class="text-sm text-gray-400">Dominio / domain</label>
+                        <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Apellidos / Surnames">
+                    </div>
                 </div>
+                <!-- PANEL DERECHO render firma -->
                 <div class="grow bg-gray-500/50 rounded shadow-sms h-full">
 
                 </div>
