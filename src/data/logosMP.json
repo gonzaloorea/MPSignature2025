@@ -86,8 +86,10 @@
     "path"        : "MP-LIFTEN_EUROPALIFT",
     "languages":{ "nl" : "Nederlands",
                   "fr" : "Français"},
-    "emaildomain" : { "be" : "mpliften.com" },
-    "webdomain"   : { "be" : "mpliften.be" },
+    "emaildomain" : { "nl" : "mpliften.com",
+                      "fr" : "mpliften.com" },
+    "webdomain"   : { "nl" : "mpliften.be",
+                      "fr" : "mpliften.be" },
     "defaultlang" : "be"
   },
   {
