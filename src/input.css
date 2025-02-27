@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: 'Roboto', sans-serif;
+  --color-red: oklch(50.24% 0.1969 20.61);
+  --color-red80: oklch(55.43% 0.175 13.45);
+  --color-red60: oklch(63.07% 0.1342 9.14);
+  --color-red40: oklch(72.27% 0.0854 6.12);
+  --color-red20: oklch(82.12% 0.0411 4.51);
+  --color-grey: oklch(50.68% 0.0205 240.32);
+  --color-grey80: oklch(59.5% 0.0162 244.87);
+  --color-grey60: oklch(68.21% 0.0109 238.59);
+  --color-grey40: oklch(76.4% 0.008 241.7);
+  --color-grey20: oklch(84.63% 0.0036 219.54);
+  --color-grey10: oklch(94.59% 0.0029 264.54);
+  --color-green:oklch(55.84% 0.0558 176.55);
+  --color-blue:oklch(53.42% 0.0571 243.81);
+  --color-danger:oklch(59.15% 0.202 21.24);
+  --color-warning:oklch(84.42% 0.172159 84.9338);
+  --color-dark:oklch(18.64% 0.0132 264.18);
+}
+
+@keyframes moviendrew {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+  
+  #flecha {
+    animation-name: moviendrew;
+      animation-duration: 0.5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;	
+    font-size: 100px;
+  }
+  

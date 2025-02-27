@@ -1,0 +1,111 @@
+[
+  {
+    "id"          : 1,
+    "businessname": "CENTRAL/FÁBRICAS",
+    "path"        : "CENTRAL-FABRICAS",
+    "languages":{ "es" : "Español",
+                  "en" : "English",
+                  "fr" : "Français",
+                  "de" : "Deutsch" },
+    "emaildomain" : { "es" : "mpascensores.com",
+                      "en" : "mplifts.com",
+                      "fr" : "mpascenseurs.com",
+                      "de" : "mpaufzuege.com" },
+    "webdomain"   : { "es" : "mpascensores.com",
+                      "en" : "mplifts.com",
+                      "fr" : "mpascenseurs.com",
+                      "de" : "mpaufzuege.com" },
+    "defaultlang" : "en"
+  },
+  {
+    "id"          : 2,
+    "businessname": "MP DISTRIBUTION DTC",
+    "path"        : "MP-DISTRIBUTION-DTC",
+    "languages":{ "es" : "Español",
+                  "en" : "English",
+                  "fr" : "Français",
+                  "de" : "Deutsch" },
+    "emaildomain" : { "es" : "mpascensores.com",
+                      "en" : "mplifts.com",
+                      "fr" : "mpascenseurs.com",
+                      "de" : "mpaufzuege.com" },
+    "webdomain"   : { "es" : "mpascensores.com",
+                      "en" : "mplifts.com",
+                      "fr" : "mpascenseurs.com",
+                      "de" : "mpaufzuege.com" },
+    "defaultlang" : "en"
+  },
+  {
+    "id"          : 3,
+    "businessname": "MP SIM THE NETHERLAND",
+    "path"        : "MP-LIFTEN_NL",
+    "languages":{ "nl" : "Nederlands"},
+    "emaildomain" : { "nl" : "mpliften.nl" },
+    "webdomain"   : { "nl" : "mpliften.nl" },
+    "defaultlang" : "nl"
+  },
+  {
+    "id"          : 4,
+    "businessname": "MP SIM POLAND",
+    "path"        : "MP-PROLIFT",
+    "languages":{ "pl" : "Polski"},
+    "emaildomain" : { "pl" : "mplifts.com" },
+    "webdomain"   : { "pl" : "mplifts.pl" },
+    "defaultlang" : "pl"
+  },
+  {
+    "id"          : 5,
+    "businessname": "MP SIM ESPAÑA",
+    "path"        : "MP-SIM-ESP",
+    "languages":{ "es" : "Español"},
+    "emaildomain" : { "es" : "mpascensores.com" },
+    "webdomain"   : { "es" : "mpascensores.es" },
+    "defaultlang" : "es"
+  },
+  {
+    "id"          : 6,
+    "businessname": "MP SIM SWEDEN",
+    "path"        : "MP-HISS",
+    "languages":{ "se" : "Svenska"},
+    "emaildomain" : { "se" : "mpsweden.se" },
+    "webdomain"   : { "se":"mphiss.se" },
+    "defaultlang" : "se"
+  },
+  {
+    "id"          : 7,
+    "businessname": "MP SIM CZECH RP.",
+    "path"        : "MP",
+    "languages":{ "cz" : "čeština"},
+    "emaildomain" : { "cz" : "mplifts.com" },
+    "webdomain"   : { "cz" : "mplifts.cz" },
+    "defaultlang" : "cz"
+  },
+  {
+    "id"          : 8,
+    "businessname": "MP SIM BELGIUM",
+    "path"        : "MP-LIFTEN_EUROPALIFT",
+    "languages":{ "nl" : "Nederlands",
+                  "fr" : "Français"},
+    "emaildomain" : { "be" : "mpliften.com" },
+    "webdomain"   : { "be" : "mpliften.be" },
+    "defaultlang" : "be"
+  },
+  {
+    "id"          : 9,
+    "businessname": "MP SIM ROMANIA",
+    "path"        : "MP-IFMA",
+    "languages":{ "ro" : "Română"},
+    "emaildomain" : { "ro":"mpifma.ro" },
+    "webdomain"   : { "ro":"mpifma.ro" },
+    "defaultlang" : "ro"
+  },
+   {
+    "id"          : 10,
+    "businessname": "MP SIM FRANCE",
+    "path"        : "MP-ASCENSEURS",
+    "languages":{ "fr" : "Français"},
+    "emaildomain" : { "fr":"mpascenseurs.com" },
+    "webdomain"   : { "fr":"mpascenseurs.fr" },
+    "defaultlang" : "fr"
+  }
+]

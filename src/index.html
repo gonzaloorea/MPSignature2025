@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./output.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+    <title>MP Signature</title>
+</head>
+<body style="background-image:url('./img/patron_BG.png')" class="bg-cover bg-center">
+    <div x-data="App()" class="flex flex-col justify-center items-center">
+        <!-- CABECERA -->
+        <div class="grow md:w-3/4 w-full p-4">
+            <h1 class="text-5xl text-red-900 text-center font-roboto font-light">Configura tu firma / Set up your signature</h1>
+            <p class="text-sm text-gray-400 text-center">Herramienta para la creación de tu firma digital en Outlook.</p>
+            <!-- DIVIDER -->
+            <div class="relative py-2">
+                <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                  <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex justify-center">
+                  <span class="px-2 text-gray-500">
+                    <svg class="size-20 text-gray-500" id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 408.7 315.2">
+                        <!-- Generator: Adobe Illustrator 29.3.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 146)  -->
+                        <defs>
+                          <style>
+                            .st0 {
+                              stroke-width: 3px;
+                            }
+                      
+                            .st0, .st1 {
+                              fill: none;
+                              stroke: #c90237;
+                              stroke-miterlimit: 10;
+                            }
+                      
+                            .st1 {
+                              stroke-width: .5px;
+                            }
+                      
+                            .st2 {
+                              fill: #66747b;
+                            }
+                          </style>
+                        </defs>
+                        <g>
+                          <path class="st2" d="M377,93.7c.4-1.3,0-2.6-.9-3.6l-48.4-49.2c-.9-.9-2.3-1.3-3.6-1l-62.6,18c-4.8,1.4-8.6,4.9-10.4,9.6l-51.1,134.8c-.5,1.3-.2,2.9.8,3.9l2.2,2.2,73.3-72.1c-4.1-5.9-3.4-14.1,2.1-19.2s14.6-5.3,20.2,0c6.2,5.8,6.3,15.5.3,21.4s-13.2,5.6-18.9,1.5l-73.3,72.1,2.2,2.2c1,1,2.5,1.4,3.9.9l135.6-48.9c4.7-1.7,8.3-5.5,9.7-10.2l19-62.3Z"/>
+                          <polygon class="st2" points="381.9 88.8 408.7 70.1 347.7 8.1 328.6 34.6 381.9 88.8"/>
+                        </g>
+                        <path class="st0" d="M23.6,111.7s89.8,7.6,160.5,106c70.7,98.4,202,45.6,202,45.6"/>
+                        <circle class="st2" cx="23.6" cy="111.7" r="7.2"/>
+                        <circle class="st2" cx="386.2" cy="263.3" r="6.9"/>
+                        <circle class="st2" cx="234.1" cy="291.4" r="3.9"/>
+                        <rect class="st2" x="175" y="209" width="20.4" height="20.4" transform="translate(-90.1 138.2) rotate(-33.4)"/>
+                        <line class="st1" x1="234.5" y1="292.1" x2="137.4" y2="148.5"/>
+                        <circle class="st2" cx="137.8" cy="149.2" r="3.9"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              
+            <!-- STEP 1 -- Inicio Malla business-->
+                <div x-show="step == 1" class="flex flex-col py-2 justify-center items-center">
+                    <div class="mx-2 mb-2">
+                        <img id="flecha" src="./img/logo.svg" class="h-10" alt="Select Business">
+                    </div>
+                    
+                    <!-- Panel -->
+                    <div
+                        x-init="fetchData()"
+                        x-cloak
+                        class="flex flex-wrap max-w-3xl justify-center gap-2 mt-2 p-1.5 cursor-pointer"
+                    >
+
+                        <template x-for="item in businessMP">
+                            <div x-on:click="businessSelected = item; step = 2" class="max-w-60 flex flex-col lg:py-1.5 py-2 w-full rounded-sm transition-colors hover:bg-gray-300 focus-visible:bg-gray-300 transition-transform ease-in-out duration-300 hover:scale-105">
+                                <img :src="'./img/' + item.path + '.svg'" class="h-10" :alt="item.businessname">
+                                <p x-text="item.businessname" class="text-sm text-grey80 text-center font-roboto"></p>
+                            </div>
+                        </template>
+
+                    </div>
+                    
+                </div>
+            <!-- STEP 1 -- Fin Malla business -->
+
+            <!-- STEP 2 -- Inicio Dropdown language-->
+                <div x-show="step == 2" class="flex py-2 justify-center items-center">
+                   
+                    <!-- Panel -->
+                    <div class="grid grid-cols-1 gap-2 md:min-w-xl rounded-lg shadow-sm  bg-white p-1.5  cursor-pointer">
+                        <p class="font-roboto text-grey40 text-center text-xl mb-2">Selecciona tu idioma / Select your language</p>
+                        <template x-for="item in Object.values(businessSelected.languages)">
+                            <div x-on:click="languageSelected = item; ; step = 3" class="flex flex-col lg:py-1.5 py-2 w-full rounded-md bg-gray-100 transition-colors hover:bg-gray-300 focus-visible:bg-gray-300">
+                                <p x-text="item" class="text-sm text-gray-500 text-center"></p>
+                            </div>
+                        </template>
+                    </div>
+                    
+                </div>
+            <!-- STEP 2 -- Fin Dropdown language -->
+            <!-- STEP 3 -- Inicio Dropdown sede-->
+            <div x-show="step == 3" class="flex flex-col py-2 justify-center items-center">
+                <p class="font-roboto text-grey40 text-center text-xl mb-2">Selecciona tu sede de la lista / Select your location from the list below</p>
+                <!-- Panel grid grid-cols-4-->
+                <div class="flex flex-wrap justify-center gap-2 max-w-3xl p-1.5">
+                    
+                    <template x-for="item in sedesByBusiness(businessSelected.businessname)">
+                        <div x-on:click="sedeSelected = item; ; step = 4" class="flex flex-col w-40 cursor-pointer rounded-lg bg-gray-100 shadow-sm transition-transform ease-in-out duration-300 hover:scale-105">
+                            <img :src="'./img/sedes/' + item.imagensede + '.jpg'" class="h-20 rounded-t-lg" :alt="item.nombresede">
+                            <p x-text="item.nombresede" class="text-sm text-gre80 text-center font-roboto font-semibold px-2"></p>
+                            <p x-text="item.direccion1" class="text-xs text-grey60 text-left font-roboto font-light px-2"></p>
+                        </div>
+                    </template>
+                </div>
+            
+                </div>
+            <!-- STEP 3 -- Fin Dropdown sede -->
+            <!-- STEP 4 -- INICIO CUERPO -->
+            <div x-show="step == 4" class="grow w-full grid grid-cols-2 mx-auto gap-2">
+                <div class="grow flex flex-wrap bg-gray-100/50 rounded shadow-sm p-4">
+                    <h2 class="grow w-full text-xl text-red-900">Completa tus datos personales.</h2>
+                    <div class="w-1/2 flex flex-col gap-2">
+                        <label for="businessname" class="text-sm text-gray-400">Nombre / Name</label>
+                        <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Nombre / Name">
+                    </div>
+                    <div class="w-1/2 flex flex-col gap-2">
+                        <label for="businessaddress" class="text-sm text-gray-400">Apellido / Surname</label>
+                        <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Apellidos / Surnames">
+                    </div>
+
+                    <div class="w-full flex flex-col gap-2">
+                        <label for="businessweb" class="text-sm text-gray-400">Cargo / Position (native language)</label>
+                        <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position">
+                    </div>
+                    <div class="w-full flex flex-col gap-2">
+                        <label for="businessweb" class="text-sm text-gray-400">Cargo / Position (english language)</label>
+                        <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position">
+                    </div>
+                </div>
+                <div class="grow bg-gray-500/50 rounded shadow-sms h-full">
+
+                </div>
+            </div>
+            <!-- STEP 4 -- FIN CUERPO -->
+        </div>
+        <!-- BOTONES DE NAVEGACION -->
+        <div class="flex flex-col md:flex-row justify-around">
+            <button x-show="step > 1" x-on:click="step--" class="bg-grey60 p-2 px-5 rounded-full text-center min-w-50 text-white m-2 cursor-pointer">Restore</button>
+            <button x-show="step <= 3" x-on:click="step++" class="bg-red p-2 px-8 rounded-full text-center min-w-50 text-white m-2 cursor-pointer">Next</button>
+        </div>
+        <!-- FIN BOTONES DE NAVEGACION -->
+
+    </div>
+</body>
+<script>
+    function App(){
+        return {
+            step:1,
+            businessSelected:null,
+            languageSelected:'',
+            sedeSelected:'',
+            businessMP:[],
+            socialMediaMP:[],
+            businessLocationMP:[],
+            sedesByBusiness(businessname){
+                return this.businessLocationMP.filter(sede => sede.logoname == businessname);
+            },
+            async fetchData() {
+                this.businessMP = await (await fetch('./data/logosMP.json')).json();
+                this.socialMediaMP = await (await fetch('./data/redesMP.json')).json();
+                this.businessLocationMP = await (await fetch('./data/sedesMP.json')).json();
+            }
+        };
+    }
+</script>
+</html>
