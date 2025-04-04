@@ -101,7 +101,7 @@
             <!-- STEP 2 -- Fin Dropdown language -->
 
             <!-- STEP 3 -- Inicio Dropdown sede-->
-            <div x-show="step == 3" class="flex flex-col py-2 justify-center items-center">
+                <div x-show="step == 3" class="flex flex-col py-2 justify-center items-center">
                 <p class="font-roboto text-grey40 text-center text-xl mb-2">Selecciona tu sede de la lista / Select your location from the list below</p>
                 <!-- Panel grid grid-cols-4-->
                 <div class="flex flex-wrap justify-center gap-2 max-w-3xl p-1.5">
@@ -119,51 +119,194 @@
             <!-- STEP 3 -- Fin Dropdown sede -->
 
             <!-- STEP 4 -- INICIO CUERPO -->
-            <div x-show="step == 4" class="grow w-full grid grid-cols-2 mx-auto gap-2">
-                <!-- PANEL IZQUIERDO formulario datos personales -->
-                <div class="grow flex flex-wrap bg-gray-100/50 rounded shadow-sm p-4">
-                    <h2 class="grow w-full text-xl text-red-900">Completa tus datos personales.</h2>
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label for="businessname" class="text-sm text-gray-400">Nombre / Name</label>
-                        <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Nombre / Name">
-                    </div>
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label for="businessaddress" class="text-sm text-gray-400">Apellido / Surname</label>
-                        <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Apellidos / Surnames">
-                    </div>
+                <div x-show="step == 4" class="grow w-full grid grid-cols-2 mx-auto gap-2">
+                    <!-- PANEL IZQUIERDO formulario datos personales -->
+                    <div class="grow flex flex-wrap bg-gray-100/50 rounded shadow-sm p-4">
+                        <h2 class="grow w-full text-xl text-red-900">Completa tus datos personales.</h2>
+                        <div class="w-1/2 flex flex-col gap-2">
+                            <label for="businessname" class="text-xs text-gray-400">Nombre / Name</label>
+                            <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Nombre / Name" x-model="username">
+                        </div>
+                        <div class="w-1/2 flex flex-col gap-2">
+                            <label for="businessaddress" class="text-xs text-gray-400">Apellido / Surname</label>
+                            <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Apellidos / Surnames" x-model="usersurname">
+                        </div>
 
-                    <div class="w-full flex flex-col gap-2">
-                        <label for="businessweb" class="text-sm text-gray-400">Cargo / Position (native language)</label>
-                        <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position">
-                    </div>
-                    <div class="w-full flex flex-col gap-2">
-                        <label for="businessweb" class="text-sm text-gray-400">Cargo / Position (english language)</label>
-                        <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position">
-                    </div>
+                        <div class="w-full flex flex-col gap-2">
+                            <label for="businessweb" class="text-xs text-gray-400">Cargo / Position (native language)</label>
+                            <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position" x-model="usernativeposition">
+                        </div>
+                        <div class="w-full flex flex-col gap-2">
+                            <label for="businessweb" class="text-xs text-gray-400">Cargo / Position (english language)</label>
+                            <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position" x-model="userposition">
+                        </div>
 
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label for="businessname" class="text-sm text-gray-400">Teléfono / Phone number</label>
-                        <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Teléfono / Phone number">
-                    </div>
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label for="businessaddress" class="text-sm text-gray-400">Móvil / Mobile</label>
-                        <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Móvil / Mobile">
-                    </div>
+                        <div class="w-1/2 flex flex-col gap-2">
+                            <label for="businessname" class="text-xs text-gray-400">Teléfono / Phone number</label>
+                            <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Teléfono / Phone number" x-model="userphone">
+                        </div>
+                        <div class="w-1/2 flex flex-col gap-2">
+                            <label for="businessaddress" class="text-xs text-gray-400">Móvil / Mobile</label>
+                            <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Móvil / Mobile" x-model="usermobile">
+                        </div>
 
-                    <div class="w-1/3 flex flex-col gap-2">
-                        <label for="businessname" class="text-sm text-gray-400">Usuario / user</label>
-                        <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Usuario / user">
+                        <div class="w-1/3 flex flex-col gap-2">
+                            <label for="businessname" class="text-xs text-gray-400">Usuario / user</label>
+                            <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Usuario / user" x-model="usermail">
+                        </div>
+                        <div class="w-2/3 flex flex-col gap-2">
+                            <label for="businessaddress" class="text-xs text-gray-400">Dominio / domain</label>
+                            <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" :placeholder="businessSelected.emaildomain[languageSelected]">
+                        </div>
                     </div>
-                    <div class="w-2/3 flex flex-col gap-2">
-                        <label for="businessaddress" class="text-sm text-gray-400">Dominio / domain</label>
-                        <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" :placeholder="businessSelected.emaildomain[languageSelected]">
+                    <!-- PANEL DERECHO render firma -->
+                    <div class="grow rounded shadow-sms h-full">
+                        <!-- tabla Firma -->
+                        <div id="divclipboard">
+                            <div id="copyfirma">
+                                <table border="0" cellspacing="0">
+                                    <tbody><tr><td style="height: 10px;"></td></tr></tbody>
+                                </table>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <table border="0" cellspacing="0" cellpadding="0" style="border: 0px; margin: 0px; padding: 0px;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="vertical-align: top;">
+                                                                <img x-bind:src="'http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/'+businessSelected.path+'.png'" alt="logo MP" height="43" style="height: 43px;">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            <td class="separador" style="width: 20px;"><span></span></td>
+                                            <td valign="top" textalign="left" style="border-left: 2px solid rgb(202, 205, 206); padding-left: 15px;">
+                                                <table border="0" cellspacing="0" cellpadding="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="padding: 0px; margin: 0px; vertical-align: top; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135);">
+                                                                <span x-text="username" id="nombre" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57); text-transform: capitalize;"> </span>
+                                                                <span></span>
+                                                                <span x-text="usersurname" id="apellidos" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(102, 102, 102); text-transform: uppercase;"> 
+
+                                                                </span><br>
+                                                                <span x-text="usernativeposition" id="jobtittlees" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112); font-weight: bold; text-transform: capitalize;"></span>
+                                                                <span> / </span>
+                                                                <span x-text="userposition" id="jobtittleen" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135); text-transform: capitalize;"></span><br>
+                                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/mail_icon.png" alt="mail">
+                                                                <span> </span>
+                                                                <span style="text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">
+                                                                    <a href="mailto:@mplifts.com" style="text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">@mplifts.com</a>
+                                                                </span><br>
+                                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/mobile_icon.png" alt="mobile" /><span> </span>
+                                                                <span x-text="usermobile" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135); text-transform:uppercase"></span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="height: 5px;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top" style="text-align: left;">
+                                                <a x-bind:href="'http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/redirect.html?logo='+businessSelected.path+'&language='+languageSelected">
+                                                    <img x-bind:src="'http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/'+businessSelected.path+'_pie_'+languageSelected+'.jpg'" alt="imagen MP" style="display: block;">
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td height="2"></td></tr><tr><td style="text-align: left; width: 20px;">
+                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/location_on.png" alt="location" style="display: block;">
+                                            </td>
+                                            <td valign="top" style="text-align: left; border-bottom: 1px solid rgb(222, 222, 222);">
+                                                <span x-text="sedeSelected.direccion1" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span><span style="color:#CC0033; font-size: 18px"> &#8226; </span>
+                                                <span x-text="sedeSelected.direccion2" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span><span style="color:#CC0033; font-size: 18px"> &#8226; </span>
+                                                <span x-text="sedeSelected.telefono1" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span><span style="color:#CC0033; font-size: 18px"> &#8226; </span>
+                                                <span x-text="sedeSelected.telefono2" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; width: 20px;">
+                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/link_icon.png" alt="website">
+                                            </td>
+                                            <td style="text-align: left; vertical-align: top;">
+                                                <a href="http://www.mplifts.com" style="text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57);">www.mplifts.com</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td width="25">
+                                                <a href="https://www.linkedin.com/company/mp-ascensores-lifts" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
+                                                    <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/linkedin.png" alt="linkedin" width="30px" height="25px">
+                                                </a>
+                                            </td>
+                                            <td width="25">
+                                                <a href="https://www.facebook.com/mplifts/" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
+                                                    <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/facebook.png" alt="facebook" width="30px" height="25px">
+                                                </a>
+                                            </td>
+                                            <td width="25">
+                                                <a href="https://twitter.com/mp_lifts" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
+                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/twitter.png" alt="twitter" width="30px" height="25px">
+                                                </a>  
+                                            </td>
+                                            <td width="25">
+                                            <a href="https://www.instagram.com/mplifts_/" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
+                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/instagram.png" alt="instagram" width="30px" height="25px">
+                                            </a></td>
+                                            <td width="25">
+                                                <a href="https://www.youtube.com/user/MPascensores" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
+                                                    <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/youtube.png" alt="youtube" width="30px" height="25px">
+                                                </a>
+                                            </td>
+                                            
+                                            <td valign="top" style="text-align: right;">
+                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/mpmovingpeople.png" alt="MP MOVING PEOPLE">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 11px; color: rgb(189, 189, 189); text-align: center;">
+                                                <p style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 11px; color: rgb(189, 189, 189); text-align: center;">The information contained in this document and attached files are private and confidential, and are destined for the sole use of the addressee. It is forbidden to reproduce, publish or divulge, totally or partially this message, as well as any use of same unauthorised by the sender. If you have received this message erroneously please delete it, as well as all copies, and immediately notify the sender of this circumstance.</p><p><img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/paperless305x22.jpg" alt="paperless" height="23" width="305">
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- fin tabla Firma -->
+                        <div class="flex justify-center mt-2">
+                        <button id="copy-btn" class="flex p-2 px-4 rounded-full items-center cursor-pointer gap-2 bg-grey20" data-clipboard-target="#divclipboard">
+                                <span>Copy to clipboard</span>
+                                <img src="img/clippy.svg" class="h-6 w-6" alt="Copy to clipboard">
+                            </button> 
+                        </div>
+                        
                     </div>
                 </div>
-                <!-- PANEL DERECHO render firma -->
-                <div class="grow bg-gray-500/50 rounded shadow-sms h-full">
-
-                </div>
-            </div>
             <!-- STEP 4 -- FIN CUERPO -->
         </div>
         <!-- BOTONES DE NAVEGACION -->
@@ -180,26 +323,33 @@
         return {
             step:1,
             businessSelected:{
-                "id"          : 1,
-                "businessname": "CENTRAL/FÁBRICAS",
-                "path"        : "CENTRAL-FABRICAS",
-                "languages":{ "es" : "Español",
+                id          : 1,
+                businessname: "CENTRAL/FÁBRICAS",
+                path        : "CENTRAL-FABRICAS",
+                languages:{ "es" : "Español",
                             "en" : "English",
                             "fr" : "Français",
                             "de" : "Deutsch" },
-                "emaildomain" : { "es" : "mpascensores.com",
+                emaildomain : { "es" : "mpascensores.com",
                                 "en" : "mplifts.com",
                                 "fr" : "mpascenseurs.com",
                                 "de" : "mpaufzuege.com" },
-                "webdomain"   : { "es" : "mpascensores.com",
+                webdomain   : { "es" : "mpascensores.com",
                                 "en" : "mplifts.com",
                                 "fr" : "mpascenseurs.com",
                                 "de" : "mpaufzuege.com" },
-                "defaultlang" : "en"
+                defaultlang : "en"
             },
             languageSelected:'',
             sedeSelected:'',
             domainSelected:'mplifts.com',
+            username : '',
+            usersurname : '',
+            usernativeposition : '',
+            userposition : '',
+            userphone : '',
+            usermobile : '',
+            usermail : '',
             businessMP:[],
             socialMediaMP:[],
             businessLocationMP:[],
@@ -214,4 +364,6 @@
         };
     }
 </script>
+<script src="dist/clipboard.min.js"></script>
+<script>new ClipboardJS('#copy-btn');</script>
 </html>
