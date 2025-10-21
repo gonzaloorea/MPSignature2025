@@ -608,6 +608,9 @@
   .isolation-auto {
     isolation: auto;
   }
+  .z-5 {
+    z-index: 5;
+  }
   .z-auto {
     z-index: auto;
   }
@@ -713,8 +716,14 @@
       max-width: 96rem !important;
     }
   }
+  .m-1 {
+    margin: calc(var(--spacing) * 1);
+  }
   .m-2 {
     margin: calc(var(--spacing) * 2);
+  }
+  .m-9 {
+    margin: calc(var(--spacing) * 9);
   }
   .mx-2 {
     margin-inline: calc(var(--spacing) * 2);
@@ -818,6 +827,9 @@
   .size-20 {
     width: calc(var(--spacing) * 20);
     height: calc(var(--spacing) * 20);
+  }
+  .h-1 {
+    height: calc(var(--spacing) * 1);
   }
   .h-6 {
     height: calc(var(--spacing) * 6);
@@ -1525,8 +1537,17 @@
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
+  .border-gray-400 {
+    border-color: var(--color-gray-400);
+  }
   .border-grey20 {
     border-color: var(--color-grey20);
+  }
+  .border-grey60 {
+    border-color: var(--color-grey60);
+  }
+  .border-grey80 {
+    border-color: var(--color-grey80);
   }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
@@ -1552,6 +1573,9 @@
   .bg-green-500 {
     background-color: var(--color-green-500);
   }
+  .bg-grey20 {
+    background-color: var(--color-grey20);
+  }
   .bg-grey60 {
     background-color: var(--color-grey60);
   }
@@ -1569,6 +1593,9 @@
   }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .bg-white\/50 {
+    background-color: color-mix(in oklab, var(--color-white) 50%, transparent);
   }
   .-bg-conic {
     --tw-gradient-position: in oklab;
@@ -1748,6 +1775,9 @@
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
+  .p-9 {
+    padding: calc(var(--spacing) * 9);
+  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -1922,6 +1952,12 @@
   }
   .text-gray-500 {
     color: var(--color-gray-500);
+  }
+  .text-grey {
+    color: var(--color-grey);
+  }
+  .text-grey20 {
+    color: var(--color-grey20);
   }
   .text-grey40 {
     color: var(--color-grey40);
@@ -2300,6 +2336,9 @@
   }
   .forced-color-adjust-none {
     forced-color-adjust: none;
+  }
+  .\[b\:\>��8�\+t�إ�cI���\$�\+��\@���\!\] {
+    b: >��8�+t�إ�cI� �$�+��@���!;
   }
   .\[keywords\:node-addon-api\] {
     keywords: node-addon-api;
@@ -2765,3 +2804,4 @@
   syntax: "*";
   inherits: false;
 }
+                                                                                                                                                                                                                                                                                                                                                                           

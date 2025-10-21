@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MP Lifts signature</title>
+</head>
+
+<body>
+	<h1>Redireccionando /Redirecting ...</h1>
+	<p id="logo"></p>
+	<p id="idioma"></p>
+
+	<script>
+		/*
+		var params = (new URL(document.location)).searchParams;
+		var logo = params.get("logo");
+		var idioma = params.get("idioma");
+		*/
+
+		var queryParams = window.location.search.substr(1).split('&').reduce(function (q, query) {
+		  var chunks = query.split('=');
+		  var key = chunks[0];
+		  var value = chunks[1];
+		  return (q[key] = value, q);
+		}, {});
+
+		/*
+		document.getElementById('idioma').innerHTML=queryParams.language;
+		document.getElementById('logo').innerHTML=queryParams.logo;
+		*/
+		if(queryParams.logo == "MP-DISTRIBUTION-DTC" || queryParams.logo == "CENTRAL-FABRICAS"){
+			if(queryParams.language=='es'){
+				window.location.replace("https://www.mpascensores.com");
+			}else if(queryParams.language=='fr'){
+				window.location.replace("https://www.mpascenseurs.com");
+			}else if(queryParams.language=='de'){
+				window.location.replace("https://www.mplifts.com");
+			}else if(queryParams.language=='en'){
+				window.location.replace("https://www.mplifts.com");
+			}else{
+				window.location.replace("https://www.mpascensores.com");				
+			}
+		}else if(queryParams.logo == "MP-ASCENSEURS"){
+			window.location.replace("https://www.mpascenseurs.fr/nouveau-contrat-ok/");
+		}else{
+			if(queryParams.language == 'es'){
+				window.location.replace("https://mpascensores.es/contrato-ok/");
+			}else if(queryParams.language == 'en'){
+				window.location.replace("https://www.mplifts.com/modernise-your-lifts/");
+			}else if(queryParams.language == 'fr'){
+				window.location.replace("https://www.mpascenseurs.fr/nouveau-contrat-ok/");
+			}else if(queryParams.language == 'nl'){
+				window.location.replace("https://mpliften.nl/ok-contract/");
+			}else if(queryParams.language == 'be'){
+				window.location.replace("https://mpliften.be/ok-contract/");
+			}else if(queryParams.language == 'se'){
+				window.location.replace("https://mphiss.se/nytt-underhallsavtal-ok/");
+			}else if(queryParams.language == 'ro'){
+				window.location.replace("https://www.mpifma.ro/noul-contract-de-intretinere-ok/");
+			}else if(queryParams.language == 'cz'){
+				window.location.replace("https://www.mplifts.cz/nova-smlouva-ok/");
+			}else if(queryParams.language == 'pl'){
+				window.location.replace("https://mplifts.pl/nowa-umowa-ok/");
+			}else {
+				window.location.replace("https://www.mplifts.com/modernise-your-lifts/");
+			}
+		}
+	</script>
+</body>
+</html>

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="./output.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-    <title>MP Signature</title>
+    <title>MP Lifts Signature</title>
 </head>
 <body style="background-image:url('img/patron_BG.png')" class="bg-cover bg-center">
     <div x-data="App()" class="flex flex-col justify-center items-center">
@@ -75,7 +76,7 @@
                         <template x-for="item in businessMP">
                             <div x-on:click="businessSelected = item; step = 2" class="max-w-60 flex flex-col lg:py-1.5 py-2 w-full rounded-sm transition-colors hover:bg-gray-300 focus-visible:bg-gray-300 transition-transform ease-in-out duration-300 hover:scale-105">
                                 <img :src="'img/' + item.path + '.svg'" class="h-10" :alt="item.businessname">
-                                <p x-text="item.businessname" class="text-sm text-grey80 text-center font-roboto"></p>
+                                <p x-text="item.businessname" class="text-sm text-grey20 text-center font-roboto"></p>
                             </div>
                         </template>
 
@@ -104,8 +105,7 @@
                 <div x-show="step == 3" class="flex flex-col py-2 justify-center items-center">
                 <p class="font-roboto text-grey40 text-center text-xl mb-2">Selecciona tu sede de la lista / Select your location from the list below</p>
                 <!-- Panel grid grid-cols-4-->
-                <div class="flex flex-wrap justify-center gap-2 max-w-3xl p-1.5">
-                    
+                <div class="flex flex-wrap justify-center gap-2 max-w-3xl p-1.5">                 
                     <template x-for="item in sedesByBusiness(businessSelected.businessname)">
                         <div x-on:click="sedeSelected = item; ; step = 4" class="flex flex-col w-40 cursor-pointer rounded-lg bg-gray-100 shadow-sm transition-transform ease-in-out duration-300 hover:scale-105">
                             <img :src="'img/sedes/' + item.imagensede + '.jpg'" class="h-20 rounded-t-lg" :alt="item.nombresede">
@@ -138,9 +138,9 @@
                         </div>
                     </div>
                     <!-- PANEL DERECHO render firma -->
-                    <div class="rounded shadow-sms h-full">
+                    <div class="h-full">
                         <!-- tabla Firma -->
-                        <div id="divclipboard">
+                        <div id="divclipboard" class="rounded-lg shadow-sm p-2 bg-white/50">
                             <div id="copyfirma">
                                 <table border="0" cellspacing="0">
                                     <tbody><tr><td style="height: 10px;"></td></tr></tbody>
@@ -243,11 +243,15 @@
                                 <table border="0" cellspacing="0" width="600" cellpadding="0">
                                     <tbody>
                                         <tr>
-                                            <td width="25">
-                                                <a href="https://www.linkedin.com/company/mp-ascensores-lifts" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
-                                                    <img src="img/linkedin.png" alt="linkedin" width="30px" height="25px">
-                                                </a>
-                                            </td>
+                                            <template x-for="red in redesByBusiness()">
+                                                <td width="25">
+                                                    <a :href="red.url" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
+                                                        <img :src="'img/'+red.tipored+'.png'" :alt="red.tipored" width="30px" height="25px">
+                                                    </a>
+                                                </td>
+                                            </template>
+   
+                                        <!--
                                             <td width="25">
                                                 <a href="https://www.facebook.com/mplifts/" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
                                                     <img src="img/facebook.png" alt="facebook" width="30px" height="25px">
@@ -267,6 +271,8 @@
                                                     <img src="img/youtube.png" alt="youtube" width="30px" height="25px">
                                                 </a>
                                             </td>
+                                        -->
+                                            
                                             
                                             <td valign="top" style="text-align: right;">
                                                 <img src="img/mpmovingpeople.png" align="right" alt="MP MOVING PEOPLE">
@@ -301,7 +307,7 @@
         </div>
         <!-- BOTONES DE NAVEGACION -->
         <div class="flex flex-col md:flex-row justify-around">
-            <button x-show="step > 1" x-on:click="step--" class="bg-grey60 p-2 px-5 rounded-full text-center min-w-50 text-white m-2 cursor-pointer">Restore</button>
+            <button x-show="step > 1" x-on:click="step--" class="border border-grey80 p-2 px-5 rounded-full text-center min-w-50 text-grey m-2 cursor-pointer">back/atrás</button>
             <button x-show="false" x-on:click="step++" class="bg-red p-2 px-8 rounded-full text-center min-w-50 text-white m-2 cursor-pointer">Next</button>
         </div>
         <!-- FIN BOTONES DE NAVEGACION -->
@@ -340,11 +346,18 @@
             userphone : '',
             usermobile : '',
             usermail : '',
+            userextension : '',
+
             businessMP:[],
             socialMediaMP:[],
             businessLocationMP:[],
+
             sedesByBusiness(businessname){
                 return this.businessLocationMP.filter(sede => sede.logoname == businessname);
+            },
+            redesByBusiness(){
+                var language = this.languageSelected;
+                return this.socialMediaMP.filter(red => red.idioma == language); //devuelve un array con todas las redes con ese idioma
             },
             async fetchData() {
                 this.businessMP = await (await fetch('./data/logosMP.json')).json();

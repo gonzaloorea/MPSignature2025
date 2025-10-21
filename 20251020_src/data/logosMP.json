@@ -1,0 +1,98 @@
+[
+  {
+    "id"          : 1,
+    "name"        : "CENTRAL/FÁBRICAS",
+    "path"        : "CENTRAL-FABRICAS",
+    "emaildomain" : { "es" : "mpascensores.com",
+                      "en" : "mplifts.com",
+                      "fr" : "mpascenseurs.com",
+                      "de" : "mpaufzuege.com" },
+    "webdomain"   : { "es" : "mpascensores.com",
+                      "en" : "mplifts.com",
+                      "fr" : "mpascenseurs.com",
+                      "de" : "mpaufzuege.com" },
+    "defaultlang" : "en"
+  }
+  ,
+  {
+    "id"          : 2,
+    "name"        : "MP DISTRIBUTION DTC",
+    "path"        : "MP-DISTRIBUTION-DTC",
+    "emaildomain" : { "es" : "mpascensores.com",
+                      "en" : "mplifts.com",
+                      "fr" : "mpascenseurs.com",
+                      "de" : "mpaufzuege.com",
+                      "se" : "mpsweden.se" },
+    "webdomain"   : { "es" : "mpascensores.com",
+                      "en" : "mplifts.com",
+                      "fr" : "mpascenseurs.com",
+                      "de" : "mpaufzuege.com",
+                      "se" : "mphiss.se" },
+    "defaultlang" : "en"
+  }
+    ,
+  {
+    "id"          : 5,
+    "name"        : "MP LIFTEN_NL",
+    "path"        : "MP-LIFTEN_NL",
+    "emaildomain" : { "nl" : "mpliften.nl" },
+    "webdomain"   : { "nl" : "mpliften.nl" },
+    "defaultlang" : "nl"
+  },
+  {
+    "id"          : 6,
+    "name"        : "MP LIFTS PL",
+    "path"        : "MP-LIFTS",
+    "emaildomain" : { "pl" : "mplifts.com" },
+    "webdomain"   : { "pl" : "mplifts.pl" },
+    "defaultlang" : "pl"
+  },
+  {
+    "id"          : 7,
+    "name"        : "MP SIM ESPAÑA",
+    "path"        : "MP-SIM-ESP",
+    "emaildomain" : { "es" : "mpascensores.com" },
+    "webdomain"   : { "es" : "mpascensores.es" },
+    "defaultlang" : "es"
+  },
+  {
+    "id"          : 8,
+    "name"        : "MP HISS",
+    "path"        : "MP-HISS",
+    "emaildomain" : { "se" : "mpsweden.se" },
+    "webdomain"   : { "se":"mphiss.se" },
+    "defaultlang" : "se"
+  },
+  {
+    "id"          : 9,
+    "name"        : "MP LIFTS CZ",
+    "path"        : "MP",
+    "emaildomain" : { "cz" : "mplifts.com" },
+    "webdomain"   : { "cz" : "mplifts.cz" },
+    "defaultlang" : "cz"
+  },
+  {
+    "id"          : 12,
+    "name"        : "MP LIFTEN | EUROPALIFT",
+    "path"        : "MP-LIFTEN_EUROPALIFT",
+    "emaildomain" : { "be" : "mpliften.com" },
+    "webdomain"   : { "be" : "mpliften.be" },
+    "defaultlang" : "be"
+  },
+  {
+    "id"          : 13,
+    "name"        : "MP IFMA",
+    "path"        : "MP-IFMA",
+    "emaildomain" : { "ro":"mpifma.ro" },
+    "webdomain"   : { "ro":"mpifma.ro" },
+    "defaultlang" : "ro"
+  },
+   {
+    "id"          : 14,
+    "name"        : "MP ASCENSEURS",
+    "path"        : "MP-ASCENSEURS",
+    "emaildomain" : { "fr":"mpascenseurs.com" },
+    "webdomain"   : { "fr":"mpascenseurs.fr" },
+    "defaultlang" : "fr"
+  }
+]
