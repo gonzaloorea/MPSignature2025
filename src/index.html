@@ -7,10 +7,10 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
     <title>MP Signature</title>
 </head>
-<body style="background-image:url('./img/patron_BG.png')" class="bg-cover bg-center">
+<body style="background-image:url('img/patron_BG.png')" class="bg-cover bg-center">
     <div x-data="App()" class="flex flex-col justify-center items-center">
         <!-- CABECERA -->
-        <div class="grow md:w-3/4 w-full p-4">
+        <div class="grow md:w-3/4 w-full p-4 justify-center">
             <h1 class="text-5xl text-red-900 text-center font-roboto font-light">Configura tu firma / Set up your signature</h1>
             <p class="text-sm text-gray-400 text-center">Herramienta para la creación de tu firma digital en Outlook.</p>
             <!-- DIVIDER -->
@@ -20,7 +20,7 @@
                 </div>
                 <div class="relative flex justify-center">
                   <span class="px-2 text-gray-500">
-                    <svg class="size-20 text-gray-500" id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 408.7 315.2">
+                    <svg class="size-20 text-gray-500" id="Capa_1" xmlns="https://www.w3.org/2000/svg" version="1.1" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 408.7 315.2">
                         <!-- Generator: Adobe Illustrator 29.3.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 146)  -->
                         <defs>
                           <style>
@@ -57,7 +57,7 @@
                     </svg>
                   </span>
                 </div>
-              </div>
+            </div>
               
             <!-- STEP 1 --  Inicio Malla business-->
                 <div x-show="step == 1" class="flex flex-col py-2 justify-center items-center">
@@ -74,7 +74,7 @@
 
                         <template x-for="item in businessMP">
                             <div x-on:click="businessSelected = item; step = 2" class="max-w-60 flex flex-col lg:py-1.5 py-2 w-full rounded-sm transition-colors hover:bg-gray-300 focus-visible:bg-gray-300 transition-transform ease-in-out duration-300 hover:scale-105">
-                                <img :src="'./img/' + item.path + '.svg'" class="h-10" :alt="item.businessname">
+                                <img :src="'img/' + item.path + '.svg'" class="h-10" :alt="item.businessname">
                                 <p x-text="item.businessname" class="text-sm text-grey80 text-center font-roboto"></p>
                             </div>
                         </template>
@@ -91,7 +91,7 @@
                     <div class="grid grid-cols-1 gap-2 md:min-w-xl rounded-lg shadow-sm  bg-white p-1.5  cursor-pointer">
                         <p class="font-roboto text-grey40 text-center text-xl mb-2">Selecciona tu idioma / Select your language</p>
                         <template x-for="item in Object.keys(businessSelected.languages)">
-                            <div x-on:click="languageSelected = item; ; step = 3" class="flex flex-col lg:py-1.5 py-2 w-full rounded-md bg-gray-100 transition-colors hover:bg-gray-300 focus-visible:bg-gray-300">
+                            <div x-on:click="languageSelected = item; step = 3" class="flex flex-col lg:py-1.5 py-2 w-full rounded-md bg-gray-100 transition-colors hover:bg-gray-300 focus-visible:bg-gray-300">
                                 <p x-text="businessSelected.languages[item]" class="text-sm text-gray-500 text-center"></p>
                             </div>
                         </template>
@@ -108,7 +108,7 @@
                     
                     <template x-for="item in sedesByBusiness(businessSelected.businessname)">
                         <div x-on:click="sedeSelected = item; ; step = 4" class="flex flex-col w-40 cursor-pointer rounded-lg bg-gray-100 shadow-sm transition-transform ease-in-out duration-300 hover:scale-105">
-                            <img :src="'./img/sedes/' + item.imagensede + '.jpg'" class="h-20 rounded-t-lg" :alt="item.nombresede">
+                            <img :src="'img/sedes/' + item.imagensede + '.jpg'" class="h-20 rounded-t-lg" :alt="item.nombresede">
                             <p x-text="item.nombresede" class="text-sm text-gre80 text-center font-roboto font-semibold px-2"></p>
                             <p x-text="item.direccion1" class="text-xs text-grey60 text-left font-roboto font-light px-2"></p>
                         </div>
@@ -119,48 +119,26 @@
             <!-- STEP 3 -- Fin Dropdown sede -->
 
             <!-- STEP 4 -- INICIO CUERPO -->
-                <div x-show="step == 4" class="grow w-full grid grid-cols-2 mx-auto gap-2">
+                <div x-show="step == 4" class="grow w-full flex flex-col md:flex-row justify-center mx-auto">
                     <!-- PANEL IZQUIERDO formulario datos personales -->
-                    <div class="grow flex flex-wrap bg-gray-100/50 rounded shadow-sm p-4">
-                        <h2 class="grow w-full text-xl text-red-900">Completa tus datos personales.</h2>
-                        <div class="w-1/2 flex flex-col gap-2">
-                            <label for="businessname" class="text-xs text-gray-400">Nombre / Name</label>
-                            <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Nombre / Name" x-model="username">
+                    <div class="w-full sm:w-96 flex flex-col flex-wrap bg-gray-100/50 p-4 gap-2">
+                        <h2 class="w-full text-xl text-red-900">Completa tus datos personales.</h2> 
+                        <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Nombre / Name" x-model="username">
+                        <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Apellidos / Surnames" x-model="usersurname">
+                        <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo/Position (native language)" x-model="usernativeposition"> 
+                        <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo/Position (english language)" x-model="userposition">
+                        <div class="flex flex-row flex-wrap">
+                            <input type="text" id="businessname" class="w-1/2 p-2 rounded shadow-sm" placeholder="Teléfono / Phone Nr" x-model="userphone">
+                            <input type="text" id="businessaddress" class="w-1/2 p-2 rounded shadow-sm" placeholder="Móvil / Mobile" x-model="usermobile">
                         </div>
-                        <div class="w-1/2 flex flex-col gap-2">
-                            <label for="businessaddress" class="text-xs text-gray-400">Apellido / Surname</label>
-                            <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Apellidos / Surnames" x-model="usersurname">
-                        </div>
-
-                        <div class="w-full flex flex-col gap-2">
-                            <label for="businessweb" class="text-xs text-gray-400">Cargo / Position (native language)</label>
-                            <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position" x-model="usernativeposition">
-                        </div>
-                        <div class="w-full flex flex-col gap-2">
-                            <label for="businessweb" class="text-xs text-gray-400">Cargo / Position (english language)</label>
-                            <input type="text" id="businessweb" class="p-2 rounded shadow-sm" placeholder="Cargo / Position" x-model="userposition">
-                        </div>
-
-                        <div class="w-1/2 flex flex-col gap-2">
-                            <label for="businessname" class="text-xs text-gray-400">Teléfono / Phone number</label>
-                            <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Teléfono / Phone number" x-model="userphone">
-                        </div>
-                        <div class="w-1/2 flex flex-col gap-2">
-                            <label for="businessaddress" class="text-xs text-gray-400">Móvil / Mobile</label>
-                            <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" placeholder="Móvil / Mobile" x-model="usermobile">
-                        </div>
-
-                        <div class="w-1/3 flex flex-col gap-2">
-                            <label for="businessname" class="text-xs text-gray-400">Usuario / user</label>
-                            <input type="text" id="businessname" class="p-2 rounded shadow-sm" placeholder="Usuario / user" x-model="usermail">
-                        </div>
-                        <div class="w-2/3 flex flex-col gap-2">
-                            <label for="businessaddress" class="text-xs text-gray-400">Dominio / domain</label>
-                            <input type="text" id="businessaddress" class="p-2 rounded shadow-sm" :placeholder="businessSelected.emaildomain[languageSelected]">
+                        <div class="flex flex-row flex-wrap justify-center">
+                            <input type="text" id="businessname" class="w-4/12 p-2 rounded shadow-sm" placeholder="Usuario / user" x-model="usermail">
+                            <h4 class="w-1/12 text-3xl text-red text-center">@</h4>                         
+                            <input type="text" id="businessaddress" class="w-7/12 p-2 rounded shadow-sm" :placeholder="businessSelected.emaildomain[languageSelected]">
                         </div>
                     </div>
                     <!-- PANEL DERECHO render firma -->
-                    <div class="grow rounded shadow-sms h-full">
+                    <div class="rounded shadow-sms h-full">
                         <!-- tabla Firma -->
                         <div id="divclipboard">
                             <div id="copyfirma">
@@ -175,7 +153,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td style="vertical-align: top;">
-                                                                <img x-bind:src="'http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/'+businessSelected.path+'.png'" alt="logo MP" height="43" style="height: 43px;">
+                                                                <img x-bind:src="'img/'+businessSelected.path+'.png'" alt="logo MP" height="43" style="height: 43px;">
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -186,24 +164,35 @@
                                                 <table border="0" cellspacing="0" cellpadding="0">
                                                     <tbody>
                                                         <tr>
-                                                            <td style="padding: 0px; margin: 0px; vertical-align: top; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135);">
-                                                                <span x-text="username" id="nombre" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57); text-transform: capitalize;"> </span>
-                                                                <span></span>
-                                                                <span x-text="usersurname" id="apellidos" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(102, 102, 102); text-transform: uppercase;"> 
-
-                                                                </span><br>
-                                                                <span x-text="usernativeposition" id="jobtittlees" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112); font-weight: bold; text-transform: capitalize;"></span>
-                                                                <span> / </span>
-                                                                <span x-text="userposition" id="jobtittleen" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135); text-transform: capitalize;"></span><br>
-                                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/mail_icon.png" alt="mail">
+                                                            <td colspan="2" style="margin:0px; padding:0px; vertical-align: top; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">
+                                                                <span x-text="username" id="nombre" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57); text-transform: capitalize;"></span>
                                                                 <span> </span>
-                                                                <span style="text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">
-                                                                    <a href="mailto:@mplifts.com" style="text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">@mplifts.com</a>
-                                                                </span><br>
-                                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/mobile_icon.png" alt="mobile" /><span> </span>
-                                                                <span x-text="usermobile" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135); text-transform:uppercase"></span>
+                                                                <span x-text="usersurname" id="apellidos" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(102, 102, 102); text-transform: uppercase;"></span>
                                                             </td>
                                                         </tr>
+                                                        <tr>
+                                                            <td colspan="2" style="margin:0px; padding:0px; vertical-align: top; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">
+                                                                <span x-text="usernativeposition" id="jobtittlees" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112); font-weight: bold; text-transform: capitalize;"></span>
+                                                                <span> / </span>
+                                                                <span x-text="userposition" id="jobtittleen" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135); text-transform: capitalize;"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="18" style="margin:0; padding:0; vertical-align: middle;padding-right: 5px;"><img src="img/mail_icon.png" alt="mail" style="margin:0;padding:0" /></td>
+                                                            <td style="margin:0; padding:0; vertical-align: middle;text-align: left;">
+                                                                <a x-bind:href="'mailto:'+usermail+'@'+businessSelected.emaildomain[languageSelected]" style="margin:0;padding:0 ;text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">
+                                                                    <span x-text="usermail" style="margin:0;padding:0;text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);"></span>
+                                                                    <span style="margin:0px;padding:0px;font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57)">@</span>
+                                                                    <span x-text="businessSelected.emaildomain[languageSelected]" style="margin:0;padding:0;text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);"></span>
+                                                                </a>       
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="18" style="margin:0; padding:0; vertical-align: center;padding-right: 5px;"><img src="img/mobile_icon.png" alt="mobile" style="margin:0;padding:0" /></td>
+                                                            <td style="margin:0; padding:0; vertical-align: center;text-align: left;">
+                                                                <span x-text="usermobile" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135); text-transform:uppercase"></span>
+                                                            </td>
+                                                        </tr>                                                   
                                                     </tbody>
                                                 </table>
                                             </td>
@@ -221,8 +210,8 @@
                                     <tbody>
                                         <tr>
                                             <td valign="top" style="text-align: left;">
-                                                <a x-bind:href="'http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/redirect.html?logo='+businessSelected.path+'&language='+languageSelected">
-                                                    <img x-bind:src="'http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/'+businessSelected.path+'_pie_'+languageSelected+'.jpg'" alt="imagen MP" style="display: block;">
+                                                <a x-bind:href="'./redirect.html?logo='+businessSelected.path+'&language='+languageSelected">
+                                                    <img x-bind:src="'img/'+businessSelected.path+'_pie_'+languageSelected+'.jpg'" alt="imagen MP" style="display: block;">
                                                 </a>
                                             </td>
                                         </tr>
@@ -232,7 +221,7 @@
                                     <tbody>
                                         <tr>
                                             <td height="2"></td></tr><tr><td style="text-align: left; width: 20px;">
-                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/location_on.png" alt="location" style="display: block;">
+                                                <img src="img/location_on.png" alt="location" style="display: block;">
                                             </td>
                                             <td valign="top" style="text-align: left; border-bottom: 1px solid rgb(222, 222, 222);">
                                                 <span x-text="sedeSelected.direccion1" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span><span style="color:#CC0033; font-size: 18px"> &#8226; </span>
@@ -243,10 +232,10 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align: left; width: 20px;">
-                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/link_icon.png" alt="website">
+                                                <img src="img/link_icon.png" alt="website">
                                             </td>
                                             <td style="text-align: left; vertical-align: top;">
-                                                <a href="http://www.mplifts.com" style="text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57);">www.mplifts.com</a>
+                                                <a x-bind:href="'https://www.'+businessSelected.webdomain[languageSelected]" x-text="'www.'+businessSelected.webdomain[languageSelected]" style="text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57);"></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -256,31 +245,31 @@
                                         <tr>
                                             <td width="25">
                                                 <a href="https://www.linkedin.com/company/mp-ascensores-lifts" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
-                                                    <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/linkedin.png" alt="linkedin" width="30px" height="25px">
+                                                    <img src="img/linkedin.png" alt="linkedin" width="30px" height="25px">
                                                 </a>
                                             </td>
                                             <td width="25">
                                                 <a href="https://www.facebook.com/mplifts/" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
-                                                    <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/facebook.png" alt="facebook" width="30px" height="25px">
+                                                    <img src="img/facebook.png" alt="facebook" width="30px" height="25px">
                                                 </a>
                                             </td>
                                             <td width="25">
                                                 <a href="https://twitter.com/mp_lifts" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
-                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/twitter.png" alt="twitter" width="30px" height="25px">
+                                                <img src="img/twitter.png" alt="twitter" width="30px" height="25px">
                                                 </a>  
                                             </td>
                                             <td width="25">
                                             <a href="https://www.instagram.com/mplifts_/" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
-                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/instagram.png" alt="instagram" width="30px" height="25px">
+                                                <img src="img/instagram.png" alt="instagram" width="30px" height="25px">
                                             </a></td>
                                             <td width="25">
                                                 <a href="https://www.youtube.com/user/MPascensores" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
-                                                    <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/youtube.png" alt="youtube" width="30px" height="25px">
+                                                    <img src="img/youtube.png" alt="youtube" width="30px" height="25px">
                                                 </a>
                                             </td>
                                             
                                             <td valign="top" style="text-align: right;">
-                                                <img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/mpmovingpeople.png" alt="MP MOVING PEOPLE">
+                                                <img src="img/mpmovingpeople.png" align="right" alt="MP MOVING PEOPLE">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -289,8 +278,10 @@
                                     <tbody>
                                         <tr>
                                             <td style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 11px; color: rgb(189, 189, 189); text-align: center;">
-                                                <p style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 11px; color: rgb(189, 189, 189); text-align: center;">The information contained in this document and attached files are private and confidential, and are destined for the sole use of the addressee. It is forbidden to reproduce, publish or divulge, totally or partially this message, as well as any use of same unauthorised by the sender. If you have received this message erroneously please delete it, as well as all copies, and immediately notify the sender of this circumstance.</p><p><img src="http://media.macpuarsa.es/FIRMAS/MPASCENSORES/2020/images/paperless305x22.jpg" alt="paperless" height="23" width="305">
-                                                </p>
+                                                <p style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 11px; color: rgb(189, 189, 189); text-align: center;">
+                                                    This email and any attached files are the property of the sender's company and are intended solely for the use of the addressee(s). The information contained in this document and attached files is private and confidential. It is forbidden to reproduce, publish, or disclose, in whole or in part, this message, as well as any unauthorized use thereof by the sender. If you have received this message in error, please delete it along with all copies and immediately notify the sender. The sender's company accepts no responsibility for any damage or loss resulting from the improper use of the information contained in this email.
+                                                    </p>
+                                                    <p class="border-t-1 mt-2 border-grey20"><span class="font-bold text-red80">PAPERLESS,</span> THINK BEFORE YOU PRINT</p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -299,12 +290,11 @@
                         </div>
                         <!-- fin tabla Firma -->
                         <div class="flex justify-center mt-2">
-                        <button id="copy-btn" class="flex p-2 px-4 rounded-full items-center cursor-pointer gap-2 bg-grey20" data-clipboard-target="#divclipboard">
-                                <span>Copy to clipboard</span>
+                            <button id="copy-btn" class="flex p-2 px-4 rounded-full items-center cursor-pointer gap-2 bg-green-500" data-clipboard-target="#divclipboard">
+                                <span class="text-white">Copy to clipboard</span>
                                 <img src="img/clippy.svg" class="h-6 w-6" alt="Copy to clipboard">
                             </button> 
                         </div>
-                        
                     </div>
                 </div>
             <!-- STEP 4 -- FIN CUERPO -->
