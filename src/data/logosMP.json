@@ -64,15 +64,6 @@
   },
   {
     "id"          : 6,
-    "businessname": "MP SIM SWEDEN",
-    "path"        : "MP-HISS",
-    "languages":{ "se" : "Svenska"},
-    "emaildomain" : { "se" : "mpsweden.se" },
-    "webdomain"   : { "se":"mphiss.se" },
-    "defaultlang" : "se"
-  },
-  {
-    "id"          : 7,
     "businessname": "MP SIM CZECH RP.",
     "path"        : "MP-LIFTS",
     "languages":{ "cz" : "čeština"},
@@ -81,9 +72,9 @@
     "defaultlang" : "cz"
   },
   {
-    "id"          : 8,
+    "id"          : 7,
     "businessname": "MP SIM BELGIUM",
-    "path"        : "MP-LIFTEN_EUROPALIFT",
+    "path"        : "MP-LIFTEN_ASCENSEURS",
     "languages":{ "nl" : "Nederlands",
                   "fr" : "Français"},
     "emaildomain" : { "nl" : "mpliften.com",
@@ -93,7 +84,7 @@
     "defaultlang" : "be"
   },
   {
-    "id"          : 9,
+    "id"          : 8,
     "businessname": "MP SIM ROMANIA",
     "path"        : "MP-IFMA",
     "languages":{ "ro" : "Română"},
@@ -102,7 +93,7 @@
     "defaultlang" : "ro"
   },
    {
-    "id"          : 10,
+    "id"          : 9,
     "businessname": "MP SIM FRANCE",
     "path"        : "MP-ASCENSEURS",
     "languages":{ "fr" : "Français"},

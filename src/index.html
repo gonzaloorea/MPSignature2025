@@ -170,9 +170,9 @@
                         <input type="text" id="businessaddress" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Apellidos / Surnames" x-model="usersurname">
                         <input type="text" id="businessweb" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Cargo / Position (native language)" x-model="usernativeposition"> 
                         <input type="text" id="businessweb" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Cargo / Position (english language)" x-model="userposition">
-                        <div class="flex flex-row flex-wrap">
-                            <input type="text" id="businessname" class="w-1/2 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Teléfono / Phone Nr" x-model="userphone">
-                            <input type="text" id="businessaddress" class="w-1/2 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Móvil / Mobile" x-model="usermobile">
+                        <div class="grid grid-cols-2 gap-1">
+                            <input type="text" id="businessname" class="p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Teléfono / Phone Nr" x-model="userphone">
+                            <input type="text" id="businessaddress" class="p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Móvil / Mobile" x-model="usermobile">
                         </div>
                         <div class="flex flex-row flex-wrap justify-center">
                             <input type="text" id="businessname" class="w-4/12 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Usuario / user" x-model="usermail">
@@ -229,7 +229,7 @@
                                 <img src='https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/${businessSelected.path}_pie_${languageSelected}.jpg' alt='imagen MP' style='display: block;'>
                             </a>`"
                         >
-                            Volver al banner inicial
+                            Banner inicial / Initial banner
                         </button>
                      </div>
                     <!-- PANEL DERECHO render firma -->
