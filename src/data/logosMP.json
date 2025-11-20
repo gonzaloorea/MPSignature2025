@@ -47,7 +47,7 @@
   {
     "id"          : 4,
     "businessname": "MP SIM POLAND",
-    "path"        : "MP-PROLIFT",
+    "path"        : "MP-LIFTS",
     "languages":{ "pl" : "Polski"},
     "emaildomain" : { "pl" : "mplifts.com" },
     "webdomain"   : { "pl" : "mplifts.pl" },
@@ -74,7 +74,7 @@
   {
     "id"          : 7,
     "businessname": "MP SIM CZECH RP.",
-    "path"        : "MP",
+    "path"        : "MP-LIFTS",
     "languages":{ "cz" : "čeština"},
     "emaildomain" : { "cz" : "mplifts.com" },
     "webdomain"   : { "cz" : "mplifts.cz" },
