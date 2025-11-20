@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP Lifts Signature</title>
+</head>
+<body>
+
+</body>
+    <table border="0" cellspacing="0" width="600" cellpadding="0">
+        <tbody>
+            <tr>
+                <td colspan="2" style="height: 5px;">
+                    <button>
+                        <img src="./top_red_line.jpg" alt="red line">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table border="0" cellspacing="0" width="600" cellpadding="0">
+        <tbody>
+            <tr>
+                <td id="image_banner" valign="top" style="text-align: left;">
+                    <a x-bind:href="'./redirect.html?logo='+businessSelected.path+'&language='+languageSelected">
+                        <img x-bind:src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/'+businessSelected.path+'_pie_'+languageSelected+'.jpg'" alt="imagen MP" style="display: block;">
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</html>

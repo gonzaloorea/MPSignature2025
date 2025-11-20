@@ -10,8 +10,9 @@
 </head>
 <body style="background-image:url('https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/patron_BG.png')" class="bg-cover bg-center">
     <div x-data="App()" x-init="window.misDatos = $data" class="flex flex-col justify-center items-center">
-        <!-- CABECERA -->
-        <div class="grow md:w-3/4 w-full p-2 justify-center">
+        <!-- CONTENIDO -->
+        <div class="max-w-7xl p-2 justify-center">
+            <!-- CABECERA -->
             <div class="flex justify-center">
                 <span class="px-2 text-gray-500">
                     <svg class="size-20 text-gray-500" id="Capa_1" xmlns="https://www.w3.org/2000/svg" version="1.1" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 408.7 315.2">
@@ -161,23 +162,24 @@
             <!-- STEP 3 -- Fin Dropdown sede -->
 
             <!-- STEP 4 -- INICIO CUERPO -->
-                <div x-show="step == 4" class="grow w-full flex flex-col md:flex-row justify-center mx-auto">
+                <div x-show="step == 4" class="grow w-full grid grid-cols-4 gap-2 mx-auto">
                     <!-- PANEL IZQUIERDO formulario datos personales -->
-                    <div class="w-full sm:w-96 flex flex-col flex-wrap bg-gray-100/50 p-4 gap-2">
-                        <h2 class="w-full text-xl text-red-900">Completa tus datos personales<br>Fulfill your business data</h2> 
-                        <input type="text" id="businessname" class="p-1 rounded shadow-sm" placeholder="Nombre / Name" x-model="username">
-                        <input type="text" id="businessaddress" class="p-1 rounded shadow-sm" placeholder="Apellidos / Surnames" x-model="usersurname">
-                        <input type="text" id="businessweb" class="p-1 rounded shadow-sm" placeholder="Cargo / Position (native language)" x-model="usernativeposition"> 
-                        <input type="text" id="businessweb" class="p-1 rounded shadow-sm" placeholder="Cargo / Position (english language)" x-model="userposition">
+                    <div class="w-full flex flex-col flex-wrap bg-gray-100/50 p-2 gap-2">
+                        <h2 class="w-full text-xl text-red80">Completa tus datos personales<br>Fulfill your business data</h2> 
+                        <input type="text" id="businessname" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Nombre / Name" x-model="username">
+                        <input type="text" id="businessaddress" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Apellidos / Surnames" x-model="usersurname">
+                        <input type="text" id="businessweb" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Cargo / Position (native language)" x-model="usernativeposition"> 
+                        <input type="text" id="businessweb" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Cargo / Position (english language)" x-model="userposition">
                         <div class="flex flex-row flex-wrap">
-                            <input type="text" id="businessname" class="w-1/2 p-1 rounded shadow-sm" placeholder="Teléfono / Phone Nr" x-model="userphone">
-                            <input type="text" id="businessaddress" class="w-1/2 p-1 rounded shadow-sm" placeholder="Móvil / Mobile" x-model="usermobile">
+                            <input type="text" id="businessname" class="w-1/2 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Teléfono / Phone Nr" x-model="userphone">
+                            <input type="text" id="businessaddress" class="w-1/2 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Móvil / Mobile" x-model="usermobile">
                         </div>
                         <div class="flex flex-row flex-wrap justify-center">
-                            <input type="text" id="businessname" class="w-4/12 p-1 rounded shadow-sm" placeholder="Usuario / user" x-model="usermail">
+                            <input type="text" id="businessname" class="w-4/12 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Usuario / user" x-model="usermail">
                             <h4 class="w-1/12 text-3xl text-red text-center">@</h4>                         
-                            <input type="text" id="businessaddress" class="w-7/12 p-1 rounded shadow-sm" :placeholder="businessSelected.emaildomain[languageSelected]">
+                            <input type="text" id="businessaddress" class="w-7/12 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" :placeholder="businessSelected.emaildomain[languageSelected]">
                         </div>
+                        <!-- Datos sede seleccionada -->
                         <div class="mt-4 border-t border-gray-200 pt-3">
                             <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Datos sede seleccionada / Selected branch data</p>
                             <p class="text-xs text-gray-400">Ajusta la dirección y teléfonos si necesitas personalizar la información mostrada en la firma.</p>
@@ -194,9 +196,44 @@
                         </div>
                         
                     </div>
+                    <!-- PANEL CENTRO BANNERS PREDETERMINADOS -->
+                     <div class="w-full flex flex-col bg-grey80/20 p-2 border border-grey60 rounded-lg shadow-sm">
+                        <h2 class="w-full text-xl text-white mb-2">Banners alternativos<br>alternative banners</h2>
+                        <button
+                            class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='https://www.mp-servicenter.com/portal/'>
+                                <img src='./img/ALT_SERVICENTER.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            <img src="./img/ALT_SERVICENTER.jpg" alt="red line" class="w-full rounded-lg shadow-sm">
+                        </button>
+                        <button
+                            class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='https://www.mpascensores.com'>
+                                <img src='./img/ALT_PRODUCTO.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            <img src="./img/ALT_PRODUCTO.jpg" alt="banner 1" class="w-full rounded-lg shadow-sm">
+                        </button>
+                        <button
+                            class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='https://s3.dualstack.eu-west-3.amazonaws.com/portal2-public.mpascensores.com/PROYECTOS/ST/index_es.html'>
+                                <img src='./img/ALT_ST.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            <img src="./img/ALT_ST.jpg" alt="banner 1" class="w-full rounded-lg shadow-sm">
+                        </button>
+                        <button
+                            class="cursor-pointer p-2 border-2 border-grey40 text-grey60 rounded-full shadow-lg shadow-mp-red80/60 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='./redirect.html?logo=${businessSelected.path}&language=${languageSelected}'>
+                                <img src='https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/${businessSelected.path}_pie_${languageSelected}.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            Volver al banner inicial
+                        </button>
+                     </div>
                     <!-- PANEL DERECHO render firma -->
-                    <div class="h-full">
-                        <!-- tabla Firma -->
+                    <div class="h-full col-span-2">
                         <div id="divclipboard" class="rounded-lg shadow-sm p-2 bg-white/50">
                             <div id="copyfirma">
                                 <table border="0" cellspacing="0">
@@ -266,7 +303,7 @@
                                 <table border="0" cellspacing="0" width="600" cellpadding="0">
                                     <tbody>
                                         <tr>
-                                            <td valign="top" style="text-align: left;">
+                                            <td x-ref="banner" valign="top" style="text-align: left;">
                                                 <a x-bind:href="'./redirect.html?logo='+businessSelected.path+'&language='+languageSelected">
                                                     <img x-bind:src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/'+businessSelected.path+'_pie_'+languageSelected+'.jpg'" alt="imagen MP" style="display: block;">
                                                 </a>
