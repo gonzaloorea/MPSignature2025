@@ -113,11 +113,11 @@
                     <div
                         x-init="fetchData()"
                         x-cloak
-                        class="flex flex-wrap max-w-3xl justify-center gap-2 mt-2 p-1.5 cursor-pointer"
+                        class="grid grid-cols-3 divide-x-1 divide-dotted divide-grey40 max-w-3xl justify-center gap-2 mt-2 p-2 cursor-pointer"
                     >
 
                         <template x-for="item in businessMP">
-                            <div x-on:click="businessSelected = item; step = 2" class="max-w-60 flex flex-col text-grey20 hover:text-white lg:py-1.5 py-2 w-full rounded-sm transition-colors hover:bg-gray-300 focus-visible:bg-gray-300 transition-transform ease-in-out duration-300 hover:scale-105">
+                            <div x-on:click="businessSelected = item; step = 2" class="flex flex-col text-grey20 hover:text-white p-2 w-full transition-colors hover:bg-gray-300 focus-visible:bg-gray-300 transition-transform ease-in-out duration-300 hover:scale-105">
                                 <img :src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/' + item.path + '.svg'" class="h-10" :alt="item.businessname">
                                 <p x-text="item.businessname" class="text-sm  text-center font-roboto"></p>
                             </div>
@@ -198,7 +198,7 @@
                     </div>
                     <!-- PANEL CENTRO BANNERS PREDETERMINADOS -->
                      <div class="w-full flex flex-col bg-grey80/20 p-2 border border-grey60 rounded-lg shadow-sm">
-                        <h2 class="w-full text-xl text-white mb-2">Banners alternativos<br>alternative banners</h2>
+                        <h2 class="w-full text-xl text-grey80 mb-2">Banners alternativos<br>alternative banners</h2>
                         <button
                             class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
                             @click="$refs.banner.innerHTML = `<a href='https://www.mp-servicenter.com/portal/'>

@@ -885,11 +885,17 @@
   .max-w-3xl {
     max-width: var(--container-3xl);
   }
+  .max-w-70 {
+    max-width: calc(var(--spacing) * 70);
+  }
   .max-w-7xl {
     max-width: var(--container-7xl);
   }
   .max-w-60 {
     max-width: calc(var(--spacing) * 60);
+  }
+  .max-w-80 {
+    max-width: calc(var(--spacing) * 80);
   }
   .max-w-none {
     max-width: none;
@@ -1149,6 +1155,9 @@
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1332,6 +1341,30 @@
       border-inline-end-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
     }
   }
+  .divide-x-1 {
+    :where(& > :not(:last-child)) {
+      --tw-divide-x-reverse: 0;
+      border-inline-style: var(--tw-border-style);
+      border-inline-start-width: calc(1px * var(--tw-divide-x-reverse));
+      border-inline-end-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+    }
+  }
+  .divide-x-2 {
+    :where(& > :not(:last-child)) {
+      --tw-divide-x-reverse: 0;
+      border-inline-style: var(--tw-border-style);
+      border-inline-start-width: calc(2px * var(--tw-divide-x-reverse));
+      border-inline-end-width: calc(2px * calc(1 - var(--tw-divide-x-reverse)));
+    }
+  }
+  .divide-x-3 {
+    :where(& > :not(:last-child)) {
+      --tw-divide-x-reverse: 0;
+      border-inline-style: var(--tw-border-style);
+      border-inline-start-width: calc(3px * var(--tw-divide-x-reverse));
+      border-inline-end-width: calc(3px * calc(1 - var(--tw-divide-x-reverse)));
+    }
+  }
   .divide-y {
     :where(& > :not(:last-child)) {
       --tw-divide-y-reverse: 0;
@@ -1344,6 +1377,28 @@
   .divide-y-reverse {
     :where(& > :not(:last-child)) {
       --tw-divide-y-reverse: 1;
+    }
+  }
+  .divide-dashed {
+    :where(& > :not(:last-child)) {
+      --tw-border-style: dashed;
+      border-style: dashed;
+    }
+  }
+  .divide-dotted {
+    :where(& > :not(:last-child)) {
+      --tw-border-style: dotted;
+      border-style: dotted;
+    }
+  }
+  .divide-grey40 {
+    :where(& > :not(:last-child)) {
+      border-color: var(--color-grey40);
+    }
+  }
+  .divide-indigo-500 {
+    :where(& > :not(:last-child)) {
+      border-color: var(--color-indigo-500);
     }
   }
   .place-self-auto {
@@ -1576,14 +1631,8 @@
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
-  .bg-gray-100\/20 {
-    background-color: color-mix(in oklab, var(--color-gray-100) 20%, transparent);
-  }
   .bg-gray-100\/50 {
     background-color: color-mix(in oklab, var(--color-gray-100) 50%, transparent);
-  }
-  .bg-gray-100\/80 {
-    background-color: color-mix(in oklab, var(--color-gray-100) 80%, transparent);
   }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
@@ -1599,9 +1648,6 @@
   }
   .bg-red {
     background-color: var(--color-red);
-  }
-  .bg-red-200 {
-    background-color: var(--color-red-200);
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
@@ -2004,9 +2050,6 @@
   }
   .text-red {
     color: var(--color-red);
-  }
-  .text-red-600 {
-    color: var(--color-red-600);
   }
   .text-red-900 {
     color: var(--color-red-900);
@@ -2513,11 +2556,6 @@
       background-color: var(--color-gray-100);
     }
   }
-  .focus\:bg-red-100 {
-    &:focus {
-      background-color: var(--color-red-100);
-    }
-  }
   .focus\:bg-red20 {
     &:focus {
       background-color: var(--color-red20);
@@ -2538,11 +2576,6 @@
   .focus\:ring-gray-300 {
     &:focus {
       --tw-ring-color: var(--color-gray-300);
-    }
-  }
-  .focus\:ring-red-300 {
-    &:focus {
-      --tw-ring-color: var(--color-red-300);
     }
   }
   .focus\:ring-red20 {
@@ -2584,6 +2617,11 @@
   .lg\:py-1\.5 {
     @media (width >= 64rem) {
       padding-block: calc(var(--spacing) * 1.5);
+    }
+  }
+  .lg\:py-2 {
+    @media (width >= 64rem) {
+      padding-block: calc(var(--spacing) * 2);
     }
   }
 }
