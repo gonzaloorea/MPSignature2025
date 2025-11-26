@@ -3,31 +3,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="./output.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
     <title>MP Lifts Signature</title>
 </head>
-<body>
+<body style="background-image:url('https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/patron_BG.png')" class="bg-cover bg-center">
+    <div x-data="App()" x-init="window.misDatos = $data" class="flex flex-col justify-center items-center">
+        <!-- CONTENIDO -->
+        <div class="max-w-7xl p-2 justify-center">
+            <!-- CABECERA -->
+            <div class="flex justify-center">
+                <span class="px-2 text-gray-500">
+                    <svg class="size-20 text-gray-500" id="Capa_1" xmlns="https://www.w3.org/2000/svg" version="1.1" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 408.7 315.2">
+                            <!-- Generator: Adobe Illustrator 29.3.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 146)  -->
+                            <defs>
+                            <style>
+                                .st0 {
+                                stroke-width: 3px;
+                                }
+                        
+                                .st0, .st1 {
+                                fill: none;
+                                stroke: #c90237;
+                                stroke-miterlimit: 10;
+                                }
+                        
+                                .st1 {
+                                stroke-width: .5px;
+                                }
+                        
+                                .st2 {
+                                fill: #66747b;
+                                }
+                            </style>
+                            </defs>
+                            <g>
+                            <path class="st2" d="M377,93.7c.4-1.3,0-2.6-.9-3.6l-48.4-49.2c-.9-.9-2.3-1.3-3.6-1l-62.6,18c-4.8,1.4-8.6,4.9-10.4,9.6l-51.1,134.8c-.5,1.3-.2,2.9.8,3.9l2.2,2.2,73.3-72.1c-4.1-5.9-3.4-14.1,2.1-19.2s14.6-5.3,20.2,0c6.2,5.8,6.3,15.5.3,21.4s-13.2,5.6-18.9,1.5l-73.3,72.1,2.2,2.2c1,1,2.5,1.4,3.9.9l135.6-48.9c4.7-1.7,8.3-5.5,9.7-10.2l19-62.3Z"/>
+                            <polygon class="st2" points="381.9 88.8 408.7 70.1 347.7 8.1 328.6 34.6 381.9 88.8"/>
+                            </g>
+                            <path class="st0" d="M23.6,111.7s89.8,7.6,160.5,106c70.7,98.4,202,45.6,202,45.6"/>
+                            <circle class="st2" cx="23.6" cy="111.7" r="7.2"/>
+                            <circle class="st2" cx="386.2" cy="263.3" r="6.9"/>
+                            <circle class="st2" cx="234.1" cy="291.4" r="3.9"/>
+                            <rect class="st2" x="175" y="209" width="20.4" height="20.4" transform="translate(-90.1 138.2) rotate(-33.4)"/>
+                            <line class="st1" x1="234.5" y1="292.1" x2="137.4" y2="148.5"/>
+                            <circle class="st2" cx="137.8" cy="149.2" r="3.9"/>
+                    </svg>
+                </span>
+                <h1 class="text-3xl text-red-900 text-center font-roboto font-light">Configura tu firma <br> Set up your signature</h1>
+                <!--
+                    <p class="text-sm text-gray-400 text-center">Herramienta para la creación de tu firma digital en Outlook.</p>
+                -->
+            </div>
+            <!-- DIVIDER -->
+            <div class="relative py-2">
+                <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                  <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <!--
+                <div class="relative flex justify-center">
+                  <span class="px-2 text-gray-500">
+                    <svg class="size-20 text-gray-500" id="Capa_1" xmlns="https://www.w3.org/2000/svg" version="1.1" xmlns:xlink="https://www.w3.org/1999/xlink" viewBox="0 0 408.7 315.2">
+                        <defs>
+                          <style>
+                            .st0 {
+                              stroke-width: 3px;
+                            }
+                      
+                            .st0, .st1 {
+                              fill: none;
+                              stroke: #c90237;
+                              stroke-miterlimit: 10;
+                            }
+                      
+                            .st1 {
+                              stroke-width: .5px;
+                            }
+                      
+                            .st2 {
+                              fill: #66747b;
+                            }
+                          </style>
+                        </defs>
+                        <g>
+                          <path class="st2" d="M377,93.7c.4-1.3,0-2.6-.9-3.6l-48.4-49.2c-.9-.9-2.3-1.3-3.6-1l-62.6,18c-4.8,1.4-8.6,4.9-10.4,9.6l-51.1,134.8c-.5,1.3-.2,2.9.8,3.9l2.2,2.2,73.3-72.1c-4.1-5.9-3.4-14.1,2.1-19.2s14.6-5.3,20.2,0c6.2,5.8,6.3,15.5.3,21.4s-13.2,5.6-18.9,1.5l-73.3,72.1,2.2,2.2c1,1,2.5,1.4,3.9.9l135.6-48.9c4.7-1.7,8.3-5.5,9.7-10.2l19-62.3Z"/>
+                          <polygon class="st2" points="381.9 88.8 408.7 70.1 347.7 8.1 328.6 34.6 381.9 88.8"/>
+                        </g>
+                        <path class="st0" d="M23.6,111.7s89.8,7.6,160.5,106c70.7,98.4,202,45.6,202,45.6"/>
+                        <circle class="st2" cx="23.6" cy="111.7" r="7.2"/>
+                        <circle class="st2" cx="386.2" cy="263.3" r="6.9"/>
+                        <circle class="st2" cx="234.1" cy="291.4" r="3.9"/>
+                        <rect class="st2" x="175" y="209" width="20.4" height="20.4" transform="translate(-90.1 138.2) rotate(-33.4)"/>
+                        <line class="st1" x1="234.5" y1="292.1" x2="137.4" y2="148.5"/>
+                        <circle class="st2" cx="137.8" cy="149.2" r="3.9"/>
+                    </svg>
+                  </span>
+                </div>
+               --> 
+            </div>
+              
+            <!-- STEP 1 --  Inicio Malla business-->
+                <div x-show="step == 1" class="flex flex-col py-2 justify-center items-center">
+                    <div class="mx-2 mb-2">
+                        <img id="flecha" src="https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/logo.svg" class="h-10" alt="Select Business">
+                    </div>
+                    
+                    <!-- Panel -->
+                    <div
+                        x-init="fetchData()"
+                        x-cloak
+                        class="grid grid-cols-3 divide-x-1 divide-dotted divide-grey40 max-w-3xl justify-center gap-2 mt-2 p-2 cursor-pointer"
+                    >
 
+                        <template x-for="item in businessMP">
+                            <div x-on:click="businessSelected = item; step = 2" class="flex flex-col text-grey20 hover:text-white p-2 w-full transition-colors hover:bg-gray-300 focus-visible:bg-gray-300 transition-transform ease-in-out duration-300 hover:scale-105">
+                                <img :src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/' + item.path + '.svg'" class="h-10" :alt="item.businessname">
+                                <p x-text="item.businessname" class="text-sm  text-center font-roboto"></p>
+                            </div>
+                        </template>
+
+                    </div>
+                    
+                </div>
+            <!-- STEP 1 -- Fin Malla business -->
+
+            <!-- STEP 2 -- Inicio Dropdown language-->
+                <div x-show="step == 2" class="flex py-2 justify-center items-center">
+                   
+                    <!-- Panel -->
+                    <div class="grid grid-cols-1 gap-2 md:min-w-xl rounded-lg shadow-sm  bg-white p-1.5  cursor-pointer">
+                        <p class="font-roboto text-grey40 text-center text-xl mb-2">Selecciona tu idioma / Select your language</p>
+                        <template x-for="item in Object.keys(businessSelected.languages)">
+                            <div x-on:click="languageSelected = item; step = 3" class="flex flex-col lg:py-1.5 py-2 w-full rounded-md bg-gray-100 transition-colors hover:bg-gray-300 focus-visible:bg-gray-300">
+                                <p x-text="businessSelected.languages[item]" class="text-sm text-gray-500 text-center"></p>
+                            </div>
+                        </template>
+                    </div>
+                    
+                </div>
+            <!-- STEP 2 -- Fin Dropdown language -->
+
+            <!-- STEP 3 -- Inicio Dropdown sede-->
+                <div x-show="step == 3" class="flex flex-col py-2 justify-center items-center">
+                <p class="font-roboto text-grey40 text-center text-xl mb-2">Selecciona tu sede de la lista / Select your location from the list below</p>
+                <!-- Panel grid grid-cols-4-->
+                <div class="flex flex-wrap justify-center gap-2 max-w-3xl p-1.5">                 
+                    <template x-for="item in sedesByBusiness(businessSelected.businessname)">
+                        <div x-on:click="sedeSelected = item; ; step = 4" class="flex flex-col w-40 cursor-pointer rounded-lg bg-gray-100 shadow-sm transition-transform ease-in-out duration-300 hover:scale-105">
+                            <img :src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/sedes/' + item.imagensede + '.jpg'" class="h-20 rounded-t-lg" :alt="item.nombresede">
+                            <p x-text="item.nombresede" class="text-sm text-gre80 text-center font-roboto font-semibold px-2"></p>
+                            <p x-text="item.direccion1" class="text-xs text-grey60 text-left font-roboto font-light px-2"></p>
+                        </div>
+                    </template>
+                </div>
+            
+                </div>
+            <!-- STEP 3 -- Fin Dropdown sede -->
+
+            <!-- STEP 4 -- INICIO CUERPO -->
+                <div x-show="step == 4" class="grow w-full grid grid-cols-4 gap-2 mx-auto">
+                    <!-- PANEL IZQUIERDO formulario datos personales -->
+                    <div class="w-full flex flex-col flex-wrap bg-gray-100/50 p-2 gap-2">
+                        <h2 class="w-full text-xl text-red80">Completa tus datos personales<br>Fulfill your business data</h2> 
+                        <input type="text" id="businessname" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Nombre / Name" x-model="username">
+                        <input type="text" id="businessaddress" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Apellidos / Surnames" x-model="usersurname">
+                        <input type="text" id="businessweb" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Cargo / Position (native language)" x-model="usernativeposition"> 
+                        <input type="text" id="businessweb" class="w-full p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Cargo / Position (english language)" x-model="userposition">
+                        <div class="grid grid-cols-2 gap-1">
+                            <input type="text" id="businessname" class="p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Teléfono / Phone Nr" x-model="userphone">
+                            <input type="text" id="businessaddress" class="p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Móvil / Mobile" x-model="usermobile">
+                        </div>
+                        <div class="flex flex-row flex-wrap justify-center">
+                            <input type="text" id="businessname" class="w-4/12 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" placeholder="Usuario / user" x-model="usermail">
+                            <h4 class="w-1/12 text-3xl text-red text-center">@</h4>                         
+                            <input type="text" id="businessaddress" class="w-7/12 p-1 rounded border border-gray-300 bg-red20/50 text-red60 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-1 focus:ring-red20 focus:bg-red20" :placeholder="businessSelected.emaildomain[languageSelected]">
+                        </div>
+                        <!-- Datos sede seleccionada -->
+                        <div class="mt-4 border-t border-gray-200 pt-3">
+                            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Datos sede seleccionada / Selected branch data</p>
+                            <p class="text-xs text-gray-400">Ajusta la dirección y teléfonos si necesitas personalizar la información mostrada en la firma.</p>
+                            <div class="flex flex-col gap-2 mt-2">
+                                
+                                <input id="sede-direccion1" type="text" x-model="sedeSelected.direccion1" placeholder="Dirección principal" class="w-full p-1 rounded border border-gray-300 bg-gray-200 text-gray-600 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-gray-100">
+                                
+                                <input id="sede-direccion2" type="text" x-model="sedeSelected.direccion2" placeholder="Dirección secundaria" class="w-full p-1 rounded border border-gray-300 bg-gray-200 text-gray-600 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-gray-100">
+                                
+                                <input id="sede-telefono1" type="text" x-model="sedeSelected.telefono1" placeholder="Teléfono principal" class="w-full p-1 rounded border border-gray-300 bg-gray-200 text-gray-600 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-gray-100">
+                                
+                                <input id="sede-telefono2" type="text" x-model="sedeSelected.telefono2" placeholder="Inserta Teléfono secundario" class="w-full p-1 rounded border border-gray-300 bg-gray-200 text-gray-600 placeholder-gray-500 shadow-inner focus:outline-none focus:ring-2 focus:ring-gray-300 focus:bg-gray-100">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- PANEL CENTRO BANNERS PREDETERMINADOS -->
+                     <div class="w-full flex flex-col bg-grey80/20 p-2 border border-grey60 rounded-lg shadow-sm">
+                        <h2 class="w-full text-xl text-grey80 mb-2">Banners alternativos<br>alternative banners</h2>
+                        <button
+                            class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='https://www.mp-servicenter.com/portal/'>
+                                <img src='./img/ALT_SERVICENTER.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            <img src="./img/ALT_SERVICENTER.jpg" alt="red line" class="w-full rounded-lg shadow-sm">
+                        </button>
+                        <button
+                            class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='https://www.mpascensores.com'>
+                                <img src='./img/ALT_PRODUCTO.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            <img src="./img/ALT_PRODUCTO.jpg" alt="banner 1" class="w-full rounded-lg shadow-sm">
+                        </button>
+                        <button
+                            class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='https://s3.dualstack.eu-west-3.amazonaws.com/portal2-public.mpascensores.com/PROYECTOS/ST/index_es.html'>
+                                <img src='./img/ALT_ST.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            <img src="./img/ALT_ST.jpg" alt="banner 1" class="w-full rounded-lg shadow-sm">
+                        </button>
+                        <button
+                            class="cursor-pointer p-2 border-2 border-grey40 text-grey60 rounded-full shadow-lg shadow-mp-red80/60 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='./redirect.html?logo=${businessSelected.path}&language=${languageSelected}'>
+                                <img src='https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/${businessSelected.path}_pie_${languageSelected}.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            Banner inicial / Initial banner
+                        </button>
+                     </div>
+                    <!-- PANEL DERECHO render firma -->
+                    <div class="h-full col-span-2">
+                        <div id="divclipboard" class="rounded-lg shadow-sm p-2 bg-white/50">
+                            <div id="copyfirma">
+                                <table border="0" cellspacing="0" style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                    <tbody><tr><td style="height: 10px;border: none; mso-border-alt: none;"></td></tr></tbody>
+                                </table>
+                                <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="border: none; mso-border-alt: none;">
+                                                <table border="0" cellspacing="0" cellpadding="0"  style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="vertical-align: top;border: none; mso-border-alt: none;">
+                                                                <img x-bind:src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/'+businessSelected.path+'.png'" alt="logo MP" height="43" style="height: 43px;">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            <td class="separador" style="width: 20px;border: none; mso-border-alt: none;"><span></span></td>
+                                            <td valign="top" textalign="left" style="border: none; mso-border-alt: none;border-left: 2px solid rgb(202, 205, 206); padding-left: 15px;">
+                                                <table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" style="margin:0px; padding:0px; vertical-align: top; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);border: none; mso-border-alt: none;">
+                                                                <span x-text="username" id="nombre" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57); text-transform: capitalize;"></span>
+                                                                <span> </span>
+                                                                <span x-text="usersurname" id="apellidos" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(102, 102, 102); text-transform: uppercase;"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2" style="border: none; mso-border-alt: none;margin:0px; padding:0px; vertical-align: top; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">
+                                                                <span x-text="usernativeposition" id="jobtittlees" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112); font-weight: bold; text-transform: capitalize;"></span>
+                                                                <span> / </span>
+                                                                <span x-text="userposition" id="jobtittleen" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135); text-transform: capitalize;"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="18" style="border: none; mso-border-alt: none;margin:0; padding:0; vertical-align: middle;padding-right: 5px;"><img src="https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/mail_icon.png" alt="mail" style="margin:0;padding:0" /></td>
+                                                            <td style="border: none; mso-border-alt: none;margin:0; padding:0; vertical-align: middle;text-align: left;">
+                                                                <a x-bind:href="'mailto:'+usermail+'@'+businessSelected.emaildomain[languageSelected]" style="margin:0;padding:0 ;text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);">
+                                                                    <span x-text="usermail" style="margin:0;padding:0;text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);"></span>
+                                                                    <span style="margin:0px;padding:0px;font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57)">@</span>
+                                                                    <span x-text="businessSelected.emaildomain[languageSelected]" style="margin:0;padding:0;text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(91, 103, 112);"></span>
+                                                                </a>       
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="18" style="border: none; mso-border-alt: none;margin:0; padding:0; vertical-align: center;padding-right: 5px;"><img src="https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/mobile_icon.png" alt="mobile" style="margin:0;padding:0" /></td>
+                                                            <td style="border: none; mso-border-alt: none;margin:0; padding:0; vertical-align: center;text-align: left;">
+                                                                <span x-text="usermobile" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135); text-transform:uppercase"></span>
+                                                            </td>
+                                                        </tr>                                                   
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0" style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="border: none; mso-border-alt: none;height: 5px;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0" style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                    <tbody>
+                                        <tr>
+                                            <td x-ref="banner" valign="top" style="border: none; mso-border-alt: none;text-align: left;">
+                                                <a x-bind:href="'./redirect.html?logo='+businessSelected.path+'&language='+languageSelected">
+                                                    <img x-bind:src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/'+businessSelected.path+'_pie_'+languageSelected+'.jpg'" alt="imagen MP" style="display: block;">
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0" style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                    <tbody>
+                                        <tr>
+                                            <td height="2" style="border: none; mso-border-alt: none;"></td></tr><tr><td style="border: none; mso-border-alt: none;text-align: left; width: 20px;">
+                                                <img src="https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/location_on.png" alt="location" style="display: block;">
+                                            </td>
+                                            <td valign="top" style="border: none; mso-border-alt: none;text-align: left; border-bottom: 1px solid rgb(222, 222, 222);">
+                                                <span x-text="sedeSelected.direccion1" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span><span style="color:#CC0033; font-size: 18px"> &#8226; </span>
+                                                <span x-text="sedeSelected.direccion2" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span><span style="color:#CC0033; font-size: 18px"> &#8226; </span>
+                                                <span x-text="sedeSelected.telefono1" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span><span style="color:#CC0033; font-size: 18px"> &#8226; </span>
+                                                <span x-text="sedeSelected.telefono2" style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(113, 125, 135)"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: none; mso-border-alt: none;text-align: left; width: 20px;">
+                                                <img src="https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/link_icon.png" alt="website">
+                                            </td>
+                                            <td style="border: none; mso-border-alt: none;text-align: left; vertical-align: top;">
+                                                <a x-bind:href="'https://www.'+businessSelected.webdomain[languageSelected]" x-text="'www.'+businessSelected.webdomain[languageSelected]" style="text-decoration: none; font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 12px; color: rgb(183, 0, 57);"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0" style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                    <tbody>
+                                        <tr>
+                                            <template x-for="red in redesByBusiness()">
+                                                <td width="25" style="border: none; mso-border-alt: none;">
+                                                    <a :href="red.url" target="_blank" style="color: rgb(91, 103, 112); padding-right: 2px;">
+                                                        <img :src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/'+red.tipored+'.png'" :alt="red.tipored" width="30px" height="25px">
+                                                    </a>
+                                                </td>
+                                            </template>
+                                            <td valign="top" style="border: none; mso-border-alt: none;text-align: right;">
+                                                <img src="https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/mpmovingpeople.png" align="right" alt="MP MOVING PEOPLE">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table border="0" cellspacing="0" width="600" cellpadding="0" style="border-collapse: collapse; border: none; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="border: none; mso-border-alt: none;font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 11px; color: rgb(189, 189, 189); text-align: center;">
+                                                <p style="font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 11px; color: rgb(189, 189, 189); text-align: center;">
+                                                    This email and any attached files are the property of the sender's company and are intended solely for the use of the addressee(s). The information contained in this document and attached files is private and confidential. It is forbidden to reproduce, publish, or disclose, in whole or in part, this message, as well as any unauthorized use thereof by the sender. If you have received this message in error, please delete it along with all copies and immediately notify the sender. The sender's company accepts no responsibility for any damage or loss resulting from the improper use of the information contained in this email.
+                                                    </p>
+                                                    <p class="border-t-1 mt-2 border-grey20"><span class="font-bold text-red80">PAPERLESS,</span> THINK BEFORE YOU PRINT</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- fin tabla Firma -->
+                        <div class="flex justify-center mt-2">
+                            <button id="copy-btn" class="flex p-2 px-4 rounded-full items-center cursor-pointer gap-2 bg-green-500" data-clipboard-target="#divclipboard">
+                                <span class="text-white">Copy to clipboard</span>
+                                <img src="https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/clippy.svg" class="h-6 w-6" alt="Copy to clipboard">
+                            </button> 
+                        </div>
+                    </div>
+                </div>
+            <!-- STEP 4 -- FIN CUERPO -->
+        </div>
+        <!-- BOTONES DE NAVEGACION -->
+        <div class="flex flex-col md:flex-row justify-around">
+            <button x-show="step > 1" x-on:click="step--" class="border border-grey80 p-2 px-5 rounded-full text-center min-w-50 text-grey m-2 cursor-pointer">back/atrás</button>
+            <button x-show="false" x-on:click="step++" class="bg-red p-2 px-8 rounded-full text-center min-w-50 text-white m-2 cursor-pointer">Next</button>
+        </div>
+        <!-- FIN BOTONES DE NAVEGACION -->
+
+    </div>
 </body>
-    <table border="0" cellspacing="0" width="600" cellpadding="0">
-        <tbody>
-            <tr>
-                <td colspan="2" style="height: 5px;">
-                    <button>
-                        <img src="./top_red_line.jpg" alt="red line">
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table border="0" cellspacing="0" width="600" cellpadding="0">
-        <tbody>
-            <tr>
-                <td id="image_banner" valign="top" style="text-align: left;">
-                    <a x-bind:href="'./redirect.html?logo='+businessSelected.path+'&language='+languageSelected">
-                        <img x-bind:src="'https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/'+businessSelected.path+'_pie_'+languageSelected+'.jpg'" alt="imagen MP" style="display: block;">
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<script>
+    function App(){
+        return {
+            step:1,
+            businessSelected:{
+                id          : 1,
+                businessname: "CENTRAL/FÁBRICAS",
+                path        : "CENTRAL-FABRICAS",
+                languages:{ "es" : "Español",
+                            "en" : "English",
+                            "fr" : "Français",
+                            "de" : "Deutsch" },
+                emaildomain : { "es" : "mpascensores.com",
+                                "en" : "mplifts.com",
+                                "fr" : "mpascenseurs.com",
+                                "de" : "mpaufzuege.com" },
+                webdomain   : { "es" : "mpascensores.com",
+                                "en" : "mplifts.com",
+                                "fr" : "mpascenseurs.com",
+                                "de" : "mpaufzuege.com" },
+                defaultlang : "en"
+            },
+            languageSelected:'',
+            sedeSelected:'',
+            domainSelected:'mplifts.com',
+            username : '',
+            usersurname : '',
+            usernativeposition : '',
+            userposition : '',
+            userphone : '',
+            usermobile : '',
+            usermail : '',
+            userextension : '',
+
+            businessMP:[],
+            socialMediaMP:[],
+            businessLocationMP:[],
+
+            sedesByBusiness(businessname){
+                return this.businessLocationMP.filter(sede => sede.logoname == businessname);
+            },
+            redesByBusiness(){
+                var language = this.languageSelected;
+                return this.socialMediaMP.filter(red => red.idioma == language); //devuelve un array con todas las redes con ese idioma
+            },
+            async fetchData() {
+                this.businessMP = await (await fetch('./data/logosMP.json')).json();
+                this.socialMediaMP = await (await fetch('./data/redesMP.json')).json();
+                this.businessLocationMP = await (await fetch('./data/sedesMP.json')).json();
+            }
+        };
+    }
+</script>
+<script src="dist/clipboard.min.js"></script>
+<script>new ClipboardJS('#copy-btn');</script>
 </html>
