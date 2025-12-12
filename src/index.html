@@ -201,6 +201,22 @@
                         <h2 class="w-full text-xl text-grey80 mb-2">Banners alternativos<br>alternative banners</h2>
                         <button
                             class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='https://www.mpascensores.com'>
+                                <img src='./img/BANNER_NAVIDAD2025_ES.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            <img src="./img/BANNER_NAVIDAD2025_ES.jpg" alt="banner 1" class="w-full rounded-lg shadow-sm">
+                        </button>
+                        <button
+                            class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
+                            @click="$refs.banner.innerHTML = `<a href='https://www.mplifts.com'>
+                                <img src='./img/BANNER_NAVIDAD2025_EN.jpg' alt='imagen MP' style='display: block;'>
+                            </a>`"
+                        >
+                            <img src="./img/BANNER_NAVIDAD2025_EN.jpg" alt="banner 1" class="w-full rounded-lg shadow-sm">
+                        </button>
+                        <button
+                            class="cursor-pointer mb-2 transition duration-300 ease-in-out hover:scale-105"
                             @click="$refs.banner.innerHTML = `<a href='https://www.mp-servicenter.com/portal/'>
                                 <img src='./img/ALT_SERVICENTER.jpg' alt='imagen MP' style='display: block;'>
                             </a>`"
@@ -344,7 +360,7 @@
                                                     </a>
                                                 </td>
                                             </template>
-                                            <td valign="top" style="border: none; mso-border-alt: none;text-align: right">
+                                            <td valign="top" style="border: none; mso-border-alt: none;text-align: right;">
                                                 <img src="https://portal-public.s3.dualstack.eu-west-1.amazonaws.com/FIRMA/img/mpmovingpeople.png" height="34" width="200" alt="MP MOVING PEOPLE" style="display: block;border:0; mso-border-alt:none;" >
                                             </td>
                                         </tr>
@@ -357,7 +373,7 @@
                                                 <p style="border:0; mso-border-alt:none;font-family: &quot;arial narrow&quot;, helvetica, sans-serif; font-size: 11px; color: rgb(189, 189, 189); text-align: center;">
                                                     This email and any attached files are the property of the sender's company and are intended solely for the use of the addressee(s). The information contained in this document and attached files is private and confidential. It is forbidden to reproduce, publish, or disclose, in whole or in part, this message, as well as any unauthorized use thereof by the sender. If you have received this message in error, please delete it along with all copies and immediately notify the sender. The sender's company accepts no responsibility for any damage or loss resulting from the improper use of the information contained in this email.
                                                     </p>
-                                                    <p style="border:0; mso-border-alt:none;border-t-1 mt-2 border-grey20"><span style="border:0; mso-border-alt:none;font-bold text-red80">PAPERLESS,</span> THINK BEFORE YOU PRINT</p>
+                                                    <p style="border:0; mso-border-alt:none;border-top: #a9b4b9 solid 1px;margin-top: 2px;"><span style="border:0; mso-border-alt:none;font-weight: bold; color: rgb(183, 0, 57)">PAPERLESS,</span> THINK BEFORE YOU PRINT</p>
                                             </td>
                                         </tr>
                                     </tbody>
