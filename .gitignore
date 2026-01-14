@@ -1,0 +1,19 @@
+# Archivos Adobe Illustrator (demasiado grandes para GitHub)
+*.ai
+
+# Node modules
+node_modules/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencias
+.env
+.env.local
